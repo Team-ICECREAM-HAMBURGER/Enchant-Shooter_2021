@@ -6,10 +6,8 @@ public class CameraController : MonoBehaviour
 {
     public Transform target;
     public Vector3 offset;
+
     public float rotateSpeed;
-
-
-
 
 
     // Update is called once per frame
@@ -20,7 +18,7 @@ public class CameraController : MonoBehaviour
 
         transform.LookAt(target);
 
-
+        /*
         // Camera Rotate
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -30,9 +28,10 @@ public class CameraController : MonoBehaviour
         {
             StartCoroutine(CameraRotation("E"));
         }
+        */
     }
 
-
+    /*
     IEnumerator CameraRotation(string key)
     {
         if (key == "Q")
@@ -54,9 +53,8 @@ public class CameraController : MonoBehaviour
                 offset = transform.position - target.position;
                 yield return new WaitForSeconds(0.01f);
             }
-
         }
-        
     }
+    */
 
 }
