@@ -22,16 +22,12 @@ public class WeaponController : MonoBehaviour
     [HideInInspector] public GameObject[] bullets;
 
     private Rigidbody bulletRigid;
-    private float shootRate_Tmp;
-
-    private bool canShoot = true;
+    public bool canShoot = true;
 
 
     public void GunMode(int gunType)
     {
-        shootRate_Tmp = shootRate;
-
-        switch(gunType)
+        switch (gunType)
         {
             case 0: // HG
             case 2: // SG
@@ -42,6 +38,7 @@ public class WeaponController : MonoBehaviour
                     canShoot = false;
                 }
                 break;
+
             case 1: // AR
                 if (Input.GetMouseButton(0) && canShoot)
                 {
