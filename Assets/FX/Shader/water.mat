@@ -8,9 +8,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: water
-  m_Shader: {fileID: 4800000, guid: 04e2f21f8e7386d4b9c9f4ba59f27a09, type: 3}
+  m_Shader: {fileID: 4800000, guid: 8fa61a2bb267ef94583a5d668a02b272, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -18,8 +18,31 @@ Material:
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _NoiseTex:
+        m_Texture: {fileID: 2800000, guid: 6d36a8794f16f0a48ac940ffaccaf701, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample3:
+        m_Texture: {fileID: 2800000, guid: 224f8dc1da357234dbf0886a29259ebb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _Cutoff: 0.5
+    - _ReflectionScale: 0
+    - _RippleDensity: 7
+    - _RippleSlimness: 1.73
+    - _RippleSpeed: 1.21
+    - _WaterDepth: 9.5
     - __dirty: 0
-    m_Colors: []
+    m_Colors:
+    - _Color0: {r: 0.3035286, g: 0.16620687, b: 0.7830189, a: 0}
+    - _DeepColor: {r: 0.131052, g: 0.1355168, b: 0.8962264, a: 0}
+    - _RippleColor: {r: 0.77496016, g: 0.98755985, b: 1.3098884, a: 0}
+    - _ShallowColor: {r: 0.3254717, g: 1, b: 0.953834, a: 0}
+    - _Vector3: {r: 0.35, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
