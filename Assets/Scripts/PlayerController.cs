@@ -10,10 +10,18 @@ public enum WeaponType
     RPG
 }
 
+public enum EnchantType
+{
+    Elec,
+    Fire,
+    Ice,
+}
+
 
 public class PlayerController : MonoBehaviour
 {
     public WeaponType weaponType;
+    public EnchantType enchantType;
     public int life;
     public float moveSpeed;
 
@@ -65,6 +73,12 @@ public class PlayerController : MonoBehaviour
                 weapon.GunMode((int)WeaponType.RPG);
                 break;
         }
+
+        // Bullet Enchant Type Change //
+        // TODO
+        ///////////////////////////////
+
+
     }
 
 
