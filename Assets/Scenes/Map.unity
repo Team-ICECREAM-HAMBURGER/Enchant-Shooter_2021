@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44456425, g: 0.4940701, b: 0.5733453, a: 1}
+  m_IndirectSpecularColor: {r: 0.44456464, g: 0.49407113, b: 0.5733463, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14586,10 +14586,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774288091}
     m_Modifications:
-    - target: {fileID: 1351544901203343815, guid: 5ddf159b2671b1b439bb600cb1e79e26, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2128710914712869524, guid: 5ddf159b2671b1b439bb600cb1e79e26, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -23944,10 +23940,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774288091}
     m_Modifications:
-    - target: {fileID: 1275673284732159304, guid: d2414f2298ce52b48998efbdc30a8619, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3526559498563648417, guid: d2414f2298ce52b48998efbdc30a8619, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -32936,10 +32928,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1774288091}
     m_Modifications:
-    - target: {fileID: 3114963852537016172, guid: 6a79705b0e2d3414794229e37d16a832, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5983263592173255779, guid: 6a79705b0e2d3414794229e37d16a832, type: 3}
       propertyPath: m_RootOrder
       value: 2
