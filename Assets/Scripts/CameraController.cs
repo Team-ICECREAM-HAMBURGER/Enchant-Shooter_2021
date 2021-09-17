@@ -18,17 +18,6 @@ public class CameraController : MonoBehaviour
 
         transform.LookAt(target);
 
-        /*
-        // Camera Rotate
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            StartCoroutine(CameraRotation("Q"));
-        }
-        else if (Input.GetKeyDown(KeyCode.E))
-        {
-            StartCoroutine(CameraRotation("E"));
-        }
-        */
     }
 
     /*

@@ -2,27 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum BulletEnchant
-{
-    electric,
-    fire,
-    ice
-}
-
 
 public class WeaponController : MonoBehaviour
 {
     public float damage;
     public float shootRate;
     public int ammo;
+    public bool canShoot;
 
-    public BulletEnchant bulletEnchant;
     public GameObject muzzle;
-
-    [HideInInspector] public GameObject[] bullets;
+    public GameObject[] bullets;
 
     private Rigidbody bulletRigid;
-    public bool canShoot = true;
+
 
 
     public void GunMode(int gunType)
@@ -50,10 +42,17 @@ public class WeaponController : MonoBehaviour
     }
 
 
+    public void BulletMode(int enchatMode)
+    {
+
+    }
+
+
+
     IEnumerator Shoot()
     {
         // Bullet Shoot //
-        GameObject bullet = Instantiate(bullets[(int)BulletEnchant.electric], muzzle.transform.position, Quaternion.identity);
+        GameObject bullet = Instantiate(bullets[0], muzzle.transform.position, Quaternion.identity);
         bulletRigid = bullet.GetComponent<Rigidbody>();
         bulletRigid.velocity = muzzle.transform.forward * 50f;
 

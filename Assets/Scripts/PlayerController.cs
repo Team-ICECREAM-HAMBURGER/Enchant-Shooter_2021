@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private float hAxis;
     private float vAxis;
 
+    [SerializeField] private int enchantType_DEBUG;
+    
 
     void FixedUpdate()
     {
@@ -75,10 +77,36 @@ public class PlayerController : MonoBehaviour
         }
 
         // Bullet Enchant Type Change //
-        // TODO
-        ///////////////////////////////
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            if ((int)enchantType >= System.Enum.GetNames(typeof(EnchantType)).Length - 1)
+            {
+                enchantType = EnchantType.Elec;
+                enchantType_DEBUG = 0;
+            }
+            else
+            {
+                enchantType++;
+                enchantType_DEBUG++;
+            }
 
+            //weapon.BulletMode((int)enchantType);
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            if ((int)enchantType <= 0)
+            {
+                enchantType = EnchantType.Ice;
+                enchantType_DEBUG = 2;
+            }
+            else
+            {
+                enchantType--;
+                enchantType_DEBUG--;
+            }
 
+            //weapon.BulletMode((int)enchantType);
+        }
     }
 
 
