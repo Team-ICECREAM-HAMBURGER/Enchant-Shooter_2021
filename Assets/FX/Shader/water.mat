@@ -38,7 +38,7 @@ Material:
     - _RippleSlimness: 1.73
     - _RippleSpeed: 1.21
     - _WaterDepth: 9.5
-    - __dirty: 0
+    - __dirty: 1
     m_Colors:
     - _Color0: {r: 0.3035286, g: 0.16620687, b: 0.7830189, a: 0}
     - _DeepColor: {r: 0.131052, g: 0.1355168, b: 0.8962264, a: 0}
