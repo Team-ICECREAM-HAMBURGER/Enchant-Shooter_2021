@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BulletDestroy : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag != "Player")
+        if (collision.gameObject.tag != "Player")
         {
             Destroy(gameObject);
         }

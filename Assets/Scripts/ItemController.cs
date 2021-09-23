@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class ItemController : MonoBehaviour
 {
+    public float actTime;
+
     private GameObject player;
     private PlayerController playerController;
-    private string itemType;
     private WeaponType randomWeapon;
 
+    private string itemType;
 
 
     private void Awake()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         player = playerController.gameObject;
-    }
 
+        StartCoroutine("ActivatingTimer");
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -28,16 +31,16 @@ public class ItemController : MonoBehaviour
             // Item Get //
             switch (itemType)
             {
-                case "Items_Hill":      // HP +1
+                case "Items_Hill(Clone)":      // HP +1
                     if (playerController.life < 5)
                     {
                         playerController.life += 1;
                     }
                     break;
-                case "Items_Shield":    // HP -> 7
+                case "Items_Shield(Clone)":    // HP -> 7
                     playerController.life = 7;
                     break;
-                case "Items_Gun":       // Gun Random Pick-Up
+                case "Items_Gun(Clone)":       // Gun Random Pick-Up
                     // Gun Random Select //
                     randomWeapon = (WeaponType)Random.Range(1, 4);
                     playerController.weaponType = randomWeapon;
@@ -56,5 +59,12 @@ public class ItemController : MonoBehaviour
                     break;
             }
         }
+    }
+
+
+    IEnumerator ActivatingTimer()
+    {
+        yield return new WaitForSeconds(actTime);
+        Destroy(gameObject);
     }
 }

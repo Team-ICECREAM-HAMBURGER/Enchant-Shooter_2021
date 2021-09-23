@@ -16,7 +16,6 @@ public class WeaponController : MonoBehaviour
     private Rigidbody bulletRigid;
 
 
-
     public void GunMode(int gunType)
     {
         switch (gunType)
