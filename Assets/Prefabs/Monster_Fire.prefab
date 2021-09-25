@@ -91,7 +91,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3333293246392487862}
   - component: {fileID: 1111215250}
-  - component: {fileID: 1111215249}
   - component: {fileID: 1111215248}
   m_Layer: 0
   m_Name: Monster_Fire
@@ -131,19 +130,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &1111215249
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5128883751828703840}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.47, y: 0.57, z: 0.72}
-  m_Center: {x: 0.0013237596, y: 0.47377956, z: 0.049651444}
 --- !u!114 &1111215248
 MonoBehaviour:
   m_ObjectHideFlags: 0
