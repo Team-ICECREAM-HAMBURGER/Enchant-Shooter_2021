@@ -40,8 +40,6 @@ public class PlayerController : MonoBehaviour
         vAxis = Input.GetAxisRaw("Vertical");
 
         // Player Move //
-        //transform.Translate(Vector3.right.normalized * hAxis * moveSpeed * Time.deltaTime);
-        //transform.Translate(Vector3.forward.normalized * vAxis * moveSpeed * Time.deltaTime);
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
         transform.position += moveVec * moveSpeed * Time.deltaTime;
 
@@ -53,60 +51,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Weapon Activate & Shoot //
-        switch(weaponType)
-        {
-            case WeaponType.HG:
-                weapon = transform.GetChild(0).gameObject.GetComponent<WeaponController>();
-                weapon.GunMode((int)WeaponType.HG);
-                break;
-
-            case WeaponType.AR:
-                weapon = transform.GetChild(1).gameObject.GetComponent<WeaponController>();
-                weapon.GunMode((int)WeaponType.AR);
-                break;
-
-            case WeaponType.SG:
-                weapon = transform.GetChild(2).gameObject.GetComponent<WeaponController>();
-                weapon.GunMode((int)WeaponType.SG);
-                break;
-
-            case WeaponType.RPG:
-                weapon = transform.GetChild(3).gameObject.GetComponent<WeaponController>();
-                weapon.GunMode((int)WeaponType.RPG);
-                break;
-        }
+        WeaponActive();
 
         // Bullet Enchant Type Change //
-        if (Input.GetAxis("Mouse ScrollWheel") > 0)
-        {
-            if ((int)enchantType >= System.Enum.GetNames(typeof(EnchantType)).Length - 1)
-            {
-                enchantType = EnchantType.Elec;
-                enchantType_DEBUG = 0;
-            }
-            else
-            {
-                enchantType++;
-                enchantType_DEBUG++;
-            }
-
-            //weapon.BulletMode((int)enchantType);
-        }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
-        {
-            if ((int)enchantType <= 0)
-            {
-                enchantType = EnchantType.Ice;
-                enchantType_DEBUG = 2;
-            }
-            else
-            {
-                enchantType--;
-                enchantType_DEBUG--;
-            }
-
-            //weapon.BulletMode((int)enchantType);
-        }
+        BulletEnchantChange();
     }
 
 
@@ -122,5 +70,100 @@ public class PlayerController : MonoBehaviour
             mouseDir.y = 0;                                         // Skip the Height detection
             gameObject.transform.LookAt(transform.position + mouseDir);
         }
+    }
+
+
+    // Weapon Activate & Shoot //
+    private void WeaponActive()
+    {
+        switch (this.weaponType)
+        {
+            case WeaponType.HG:
+                weapon = transform.GetChild(0).gameObject.GetComponent<WeaponController>();
+                weapon.GunMode((int)WeaponType.HG);
+                break;
+
+            case WeaponType.AR:
+                weapon = transform.GetChild(1).gameObject.GetComponent<WeaponController>();
+                weapon.GunMode((int)WeaponType.AR);
+
+                // IF, Weapon's Load OUT, Change to HG //
+                if (weapon.ammo <= 0)
+                {
+                    weapon.gameObject.SetActive(false);
+                    weapon.ammo = weapon.ammo_Temp;
+                    weapon.canShoot = true;
+
+                    this.weaponType = 0;
+                    transform.GetChild(0).gameObject.SetActive(true);
+                }
+                break;
+
+            case WeaponType.SG:
+                weapon = transform.GetChild(2).gameObject.GetComponent<WeaponController>();
+                weapon.GunMode((int)WeaponType.SG);
+
+                // IF, Weapon's Load OUT, Change to HG //
+                if (weapon.ammo <= 0)
+                {
+                    weapon.gameObject.SetActive(false);
+                    weapon.ammo = weapon.ammo_Temp;
+                    weapon.canShoot = true;
+
+                    this.weaponType = 0;
+                    transform.GetChild(0).gameObject.SetActive(true);
+                }
+                break;
+
+            case WeaponType.RPG:
+                weapon = transform.GetChild(3).gameObject.GetComponent<WeaponController>();
+                weapon.GunMode((int)WeaponType.RPG);
+
+                // IF, Weapon's Load OUT, Change to HG //
+                if (weapon.ammo <= 0)
+                {
+                    weapon.gameObject.SetActive(false);
+                    weapon.ammo = weapon.ammo_Temp;
+                    weapon.canShoot = true;
+
+                    this.weaponType = 0;
+                    transform.GetChild(0).gameObject.SetActive(true);
+                }
+                break;
+        }
+    }
+
+
+    // Bullet Enchant Type Change //
+    private void BulletEnchantChange()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
+            if ((int)enchantType >= System.Enum.GetNames(typeof(EnchantType)).Length - 1)
+            {
+                enchantType = EnchantType.Elec;
+                enchantType_DEBUG = 0;
+            }
+            else
+            {
+                enchantType++;
+                enchantType_DEBUG++;
+            }
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
+            if ((int)enchantType <= 0)
+            {
+                enchantType = EnchantType.Ice;
+                enchantType_DEBUG = 2;
+            }
+            else
+            {
+                enchantType--;
+                enchantType_DEBUG--;
+            }
+        }
+
+        weapon.BulletMode(enchantType);
     }
 }

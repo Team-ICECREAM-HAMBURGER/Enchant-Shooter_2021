@@ -21,6 +21,7 @@ public class ItemController : MonoBehaviour
         StartCoroutine("ActivatingTimer");
     }
 
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")

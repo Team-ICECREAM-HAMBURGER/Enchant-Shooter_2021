@@ -91,8 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6096761112518831396}
   - component: {fileID: 1259048133}
-  - component: {fileID: 1259048132}
   - component: {fileID: 1259048131}
+  - component: {fileID: 1259048132}
   m_Layer: 0
   m_Name: Monster_Ice
   m_TagString: Untagged
@@ -131,6 +131,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &1259048131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9202610943832184701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3a5ce9975452ca43ae87dec8df9d5d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!65 &1259048132
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -144,15 +156,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.47, y: 0.57, z: 0.72}
   m_Center: {x: 0.0013237596, y: 0.47377956, z: 0.049651444}
---- !u!114 &1259048131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9202610943832184701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3a5ce9975452ca43ae87dec8df9d5d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

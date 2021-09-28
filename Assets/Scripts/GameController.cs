@@ -18,10 +18,10 @@ public class GameController : MonoBehaviour
 
     void ItemRandomSpawn()
     {
-        float ranX = Random.RandomRange(-9, 42);
-        float ranZ = Random.RandomRange(-9, 29);
+        float ranX = Random.Range(-9, 42);
+        float ranZ = Random.Range(-9, 29);
 
-        int index = Random.RandomRange(0, 3);
+        int index = Random.Range(0, 3);
 
         Vector3 iSpawnPos = new Vector3(ranX, 0.6f, ranZ);
 
