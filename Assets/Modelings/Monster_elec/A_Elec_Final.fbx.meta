@@ -1,11 +1,20 @@
 fileFormatVersion: 2
-guid: 92a602f4b4abbe84e85280c232089ceb
+guid: 0654d616c3e0d714f8429ccff809497e
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
-      74: -623603649343465320
-    second: Scene
+      74: -4325224268336157349
+    second: Armature|Attck
+  - first:
+      74: 6059336001588132254
+    second: Armature|Die
+  - first:
+      74: -1978303741906493279
+    second: Armature|idle
+  - first:
+      74: -7551964380084998518
+    second: Armature|Run
   externalObjects: {}
   materials:
     materialImportMode: 2

@@ -1,0 +1,24 @@
+# Blender MTL File: 'monster_Elec.blend'
+# Material Count: 2
+
+newmtl Monster_Elec_palette
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.900000 0.900000 0.900000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\my\\Documents\\GitHub\\Enchant-Shooter\\Assets\\Modelings\\Monster_elec\\Monster_Elec.png
+
+newmtl Monster_Elec_palette.001
+Ns 900.000000
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 0.900000 0.900000 0.900000
+Ke 0.000000 0.000000 0.000000
+Ni 1.500000
+d 1.000000
+illum 2
+map_Kd C:\\Users\\my\\Documents\\GitHub\\Enchant-Shooter\\Assets\\Modelings\\Monster_elec\\Monster_Elec.png

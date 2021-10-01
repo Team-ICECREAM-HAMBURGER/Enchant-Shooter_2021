@@ -1,7 +1,7 @@
 # 3ds Max Wavefront OBJ Exporter v0.99 - (c)2007 guruware
-# File Created: 29.09.2021 13:37:19
+# File Created: 01.10.2021 09:07:28
 
-newmtl Body_Ex1_palette
+newmtl Player_Body_Ex1_palette
 	Kd 1.0000 1.0000 1.0000
 	Ks 0.9000 0.9000 0.9000
 	Tr 0.0000
