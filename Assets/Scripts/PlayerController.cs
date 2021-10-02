@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour
 
         // Bullet Enchant Type Change //
         BulletEnchantChange();
+
+        
+
     }
 
 

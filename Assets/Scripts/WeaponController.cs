@@ -59,15 +59,15 @@ public class WeaponController : MonoBehaviour
         switch (enchantType)
         {
             case EnchantType.Elec:
-                Debug.Log("Elec");
+                //Debug.Log("Elec");
                 break;
 
             case EnchantType.Ice:
-                Debug.Log("Ice");
+                //Debug.Log("Ice");
                 break;
 
             case EnchantType.Fire:
-                Debug.Log("Fire");
+                //Debug.Log("Fire");
                 break;
         }
 
