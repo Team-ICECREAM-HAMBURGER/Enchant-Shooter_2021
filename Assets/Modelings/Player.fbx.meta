@@ -13,8 +13,8 @@ ModelImporter:
       74: -1978303741906493279
     second: Armature|idle
   - first:
-      74: 8349542763059015795
-    second: Armature|Walk
+      74: 1303299601406483602
+    second: Armature|run
   - first:
       74: -8640428381985338345
     second: Armature|Walk_2
