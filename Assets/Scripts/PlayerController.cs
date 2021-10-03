@@ -15,6 +15,7 @@ public enum EnchantType
     Elec,
     Fire,
     Ice,
+    Normal
 }
 
 
@@ -55,9 +56,6 @@ public class PlayerController : MonoBehaviour
 
         // Bullet Enchant Type Change //
         BulletEnchantChange();
-
-        
-
     }
 
 
@@ -70,7 +68,9 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(ray, out hit))  // Ray shoot
         {
             Vector3 mouseDir = (hit.point - transform.position);    // dir = mouse point - player point (Vector - Vector)
-            mouseDir.y = 0;                                         // Skip the Height detection
+            mouseDir.y = 0;
+            
+            // Skip the Height detection
             gameObject.transform.LookAt(transform.position + mouseDir);
         }
     }

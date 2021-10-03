@@ -23,12 +23,13 @@ public enum Stat
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private int life;
+    [SerializeField] private float life;
     [SerializeField] private int attackPower;
     [SerializeField] private int score;    
     [SerializeField] private bool hitElec;
     [SerializeField] private int hitElecCount;
     [SerializeField] private bool hitFire;
+    [SerializeField] private int hitFireTimer = 1;
     [SerializeField] private bool hitIce;
     [SerializeField] private int hitIceCount;
 
@@ -36,6 +37,7 @@ public class EnemyController : MonoBehaviour
     public Enchant enchant;
     public GameObject player;
 
+    private WeaponController weaponController;
     private PlayerController playerController;
     private Animator animator;
     private NavMeshAgent nav;
@@ -47,11 +49,15 @@ public class EnemyController : MonoBehaviour
     private bool doDie;
 
 
+    private float dmgMulti;
+
+
     private void Awake()
     {
         nav = GetComponent<NavMeshAgent>();
         eRB = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        weaponController = player.GetComponentInChildren<WeaponController>();
         playerController = player.GetComponent<PlayerController>();
 
         ChaseStart();
@@ -96,6 +102,11 @@ public class EnemyController : MonoBehaviour
         {
             isIdle = true;
         }
+
+        if (this.life <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 
@@ -106,15 +117,25 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    private void EnchantFire()
+    IEnumerator EnchantFire()
     {
-        
+        while (hitFireTimer < 3)
+        {
+            dmgMulti = 1.5f;
+            hitFireTimer += 1;
+            bulletHit();
+            yield return new WaitForSeconds(1);
+        }
+
+        hitFireTimer = 1;
+        StopCoroutine(EnchantFire());
     }
 
 
     private void EnchantElec()
     {
         this.hitElecCount += 1;
+        bulletHit();
 
         if (this.hitElecCount >= 10)
         {
@@ -127,6 +148,7 @@ public class EnemyController : MonoBehaviour
     private void EnchantIce()
     {
         this.hitIceCount += 1;
+        bulletHit();
 
         if (this.hitIceCount >= 20)
         {
@@ -147,11 +169,18 @@ public class EnemyController : MonoBehaviour
     }
 
 
+    private void bulletHit()
+    {
+        life -= weaponController.damage * dmgMulti;
+    }
+
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Bullet")
         {
             Debug.Log("hit");
+            bulletHit();
 
             switch (playerController.enchantType)
             {
@@ -162,7 +191,7 @@ public class EnemyController : MonoBehaviour
 
                 case EnchantType.Fire:
                     this.hitFire = true;
-                    EnchantFire();
+                    StartCoroutine(EnchantFire());
                     break;
 
                 case EnchantType.Ice:
