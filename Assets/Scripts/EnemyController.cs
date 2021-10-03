@@ -43,13 +43,11 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent nav;
     private Rigidbody eRB;
     private float smooth = 2.0f;
+    private float dmgMulti;
     private bool isRun;
     private bool isAttack;
     private bool isIdle;
     private bool doDie;
-
-
-    private float dmgMulti;
 
 
     private void Awake()

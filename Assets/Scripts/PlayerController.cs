@@ -25,6 +25,11 @@ public class PlayerController : MonoBehaviour
     public EnchantType enchantType;
     public int life;
     public float moveSpeed;
+    public GameObject HG;
+    public GameObject AR;
+    public GameObject SG;
+    public GameObject RPG;
+    public Animator animator;
 
     private Vector3 moveVec;
     private WeaponController weapon;
@@ -44,6 +49,19 @@ public class PlayerController : MonoBehaviour
         moveVec = new Vector3(hAxis, 0, vAxis).normalized;
         transform.position += moveVec * moveSpeed * Time.deltaTime;
 
+        if (moveVec != Vector3.zero)
+        {
+            Debug.Log("ON MOVING!");
+            animator.SetBool("isRun", true);
+            animator.SetBool("isIdle", false);
+        }
+        else
+        {
+            Debug.Log("NOT MOVING!");
+            animator.SetBool("isIdle", true);
+            animator.SetBool("isRun", false);
+        }
+
         // Player Sight //
         LookMousePos();
     }
@@ -51,6 +69,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //Cursor.visible = false;
         // Weapon Activate & Shoot //
         WeaponActive();
 
@@ -82,12 +101,12 @@ public class PlayerController : MonoBehaviour
         switch (this.weaponType)
         {
             case WeaponType.HG:
-                weapon = transform.GetChild(0).gameObject.GetComponent<WeaponController>();
+                weapon = HG.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.HG);
                 break;
 
             case WeaponType.AR:
-                weapon = transform.GetChild(1).gameObject.GetComponent<WeaponController>();
+                weapon = AR.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.AR);
 
                 // IF, Weapon's Load OUT, Change to HG //
@@ -98,12 +117,12 @@ public class PlayerController : MonoBehaviour
                     weapon.canShoot = true;
 
                     this.weaponType = 0;
-                    transform.GetChild(0).gameObject.SetActive(true);
+                    HG.SetActive(true);
                 }
                 break;
 
             case WeaponType.SG:
-                weapon = transform.GetChild(2).gameObject.GetComponent<WeaponController>();
+                weapon = SG.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.SG);
 
                 // IF, Weapon's Load OUT, Change to HG //
@@ -114,12 +133,12 @@ public class PlayerController : MonoBehaviour
                     weapon.canShoot = true;
 
                     this.weaponType = 0;
-                    transform.GetChild(0).gameObject.SetActive(true);
+                    HG.SetActive(true);
                 }
                 break;
 
             case WeaponType.RPG:
-                weapon = transform.GetChild(3).gameObject.GetComponent<WeaponController>();
+                weapon = RPG.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.RPG);
 
                 // IF, Weapon's Load OUT, Change to HG //
@@ -130,7 +149,7 @@ public class PlayerController : MonoBehaviour
                     weapon.canShoot = true;
 
                     this.weaponType = 0;
-                    transform.GetChild(0).gameObject.SetActive(true);
+                    RPG.SetActive(true);
                 }
                 break;
         }

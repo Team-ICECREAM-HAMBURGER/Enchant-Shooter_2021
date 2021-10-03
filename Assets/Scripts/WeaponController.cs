@@ -13,19 +13,30 @@ public class WeaponController : MonoBehaviour
     public bool canShoot;
     public GameObject muzzle;
     public GameObject[] bullets;
+    public GameObject razr;
+    public GameObject player;
 
     private int bulletType;
     private Rigidbody bulletRigid;
     private GameObject bullet;
-    private PlayerController player;
-
+    private PlayerController playerController;
 
 
     private void Awake()
     {
-        player = transform.GetComponentInParent<PlayerController>();
+        playerController = player.GetComponent<PlayerController>();
         ammo_Temp = ammo;
     }
+
+
+    public void Update()
+    {
+        if (Input.GetMouseButtonUp(0))
+        {
+            playerController.animator.SetBool("isFire", false);
+        }
+    }
+
 
 
     public void GunMode(int gunType)
@@ -78,12 +89,10 @@ public class WeaponController : MonoBehaviour
     IEnumerator Shoot(int gunType)
     {
         // Bullet Shoot //
-        Ray ray;
-        RaycastHit raycast;
-
         bullet = Instantiate(bullets[this.bulletType], muzzle.transform.position, Quaternion.identity);
         bulletRigid = bullet.GetComponent<Rigidbody>();
-        bulletRigid.velocity = muzzle.transform.forward * 50f;
+        bulletRigid.velocity = -transform.forward * 50f;
+        playerController.animator.SetBool("isFire", true);
 
         // Shoot Delay //
         yield return new WaitForSeconds(this.shootRate);
