@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2556167589993644007}
   - component: {fileID: 6698929444601183336}
-  - component: {fileID: 8320960547582520925}
   - component: {fileID: 3783282503288050677}
+  - component: {fileID: 952546199691850690}
   m_Layer: 0
   m_Name: Bullet_Elec
   m_TagString: Bullet
@@ -47,7 +47,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &8320960547582520925
+--- !u!114 &3783282503288050677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3013877927385224879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8819b38d4bfa3c94d8f2425bb048b8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &952546199691850690
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -62,19 +74,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
---- !u!114 &3783282503288050677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3013877927385224879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8819b38d4bfa3c94d8f2425bb048b8ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_CollisionDetection: 1
 --- !u!1001 &8601262111336683824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,17 +82,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2556167589993644007}
     m_Modifications:
+    - target: {fileID: 64543792747452335, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 320405932948213195, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 320405932948213195, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 320405932948213195, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 429562930839747836, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 504882984231182153, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717809679844288642, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880717220565489, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880717322164705, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880717774516279, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880718294056796, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4.8755736
-      objectReference: {fileID: 0}
-    - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 4.8755736
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_LocalPosition.x
@@ -108,19 +144,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -132,11 +168,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599401, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880718383599402, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599404, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_Name
       value: FX_ElecGun_Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880719109264369, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: useRigidbodyForVelocity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92630beecfd12144588b63644a51fe21, type: 3}

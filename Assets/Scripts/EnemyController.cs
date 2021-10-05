@@ -5,10 +5,10 @@ using UnityEngine.AI;
 
 public enum Enchant
 {
+    Normal,
     Elec,
     Fire,
     Ice,
-    Normal
 }
 
 
@@ -52,9 +52,9 @@ public class EnemyController : MonoBehaviour
 
     private void Awake()
     {
-        nav = GetComponent<NavMeshAgent>();
         eRB = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
+        nav = GetComponentInChildren<NavMeshAgent>();
         weaponController = player.GetComponentInChildren<WeaponController>();
         playerController = player.GetComponent<PlayerController>();
 
@@ -101,9 +101,22 @@ public class EnemyController : MonoBehaviour
             isIdle = true;
         }
 
-        if (this.life <= 0)
+        // Enemy DEATH //
+        if (this.life <= 0) 
         {
+            GoldenBulletGet();  // Enchant Bullet GET
             gameObject.SetActive(false);
+        }
+    }
+
+
+    // Enchant Bullet GET; Enchat Bullet Timer ON //
+    private void GoldenBulletGet()
+    {
+        if (enchant != Enchant.Normal)  
+        {
+            playerController.isGolden = true;
+            playerController.goldenSwt = true;
         }
     }
 

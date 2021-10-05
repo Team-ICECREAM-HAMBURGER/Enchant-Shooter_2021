@@ -21,6 +21,8 @@ public class WeaponController : MonoBehaviour
     private PlayerController playerController;
     private ParticleSystem muzzleFX;
 
+    [SerializeField] private float bulletSpeed;
+
 
     private void Awake()
     {
@@ -37,7 +39,6 @@ public class WeaponController : MonoBehaviour
             playerController.animator.SetBool("isFire", false);
         }
     }
-
 
 
     public void GunMode(int gunType)
@@ -93,7 +94,7 @@ public class WeaponController : MonoBehaviour
         bullet = Instantiate(bullets[this.bulletType], muzzle.transform.position, Quaternion.identity);
         bulletRigid = bullet.GetComponent<Rigidbody>();
         bulletRigid.velocity = muzzle.transform.forward * 50f;
-        //bullet.transform.position += Vector3.right * 50 * Time.deltaTime;
+        //bullet.transform.Translate(Vector3.forward * 50 * Time.deltaTime);
         playerController.animator.SetBool("isFire", true);
 
         // FX play //

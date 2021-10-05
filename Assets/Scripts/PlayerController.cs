@@ -12,10 +12,10 @@ public enum WeaponType
 
 public enum EnchantType
 {
+    Normal,
     Elec,
     Fire,
     Ice,
-    Normal
 }
 
 
@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public EnchantType enchantType;
     public int life;
     public float moveSpeed;
+    public float goldenTimer;
+    public bool isGolden;
+    public bool goldenSwt;
     public GameObject HG;
     public GameObject AR;
     public GameObject SG;
@@ -35,9 +38,14 @@ public class PlayerController : MonoBehaviour
     private WeaponController weapon;
     private float hAxis;
     private float vAxis;
+    private float goldenTimer_Temp;
 
-    [SerializeField] private int enchantType_DEBUG;
-    
+
+    private void Awake()
+    {
+        goldenTimer_Temp = goldenTimer; // Golden Timer Backup
+    }
+
 
     void FixedUpdate()
     {
@@ -70,11 +78,24 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Cursor.visible = false;
+
         // Weapon Activate & Shoot //
         WeaponActive();
 
-        // Bullet Enchant Type Change //
-        BulletEnchantChange();
+        // Enchant Bullet Activating //
+        if (isGolden && goldenSwt)          // Timer ON
+        {
+            goldenTimer = goldenTimer_Temp;
+            StartCoroutine(EnchantTimer());
+        }
+        else if (!isGolden && !goldenSwt)   // Timer OUT
+        {
+            enchantType = EnchantType.Normal;
+        }
+        else if (isGolden && !goldenSwt)    // Enchant Bullet Activate
+        {
+            BulletEnchantChange();
+        }
     }
 
 
@@ -157,6 +178,22 @@ public class PlayerController : MonoBehaviour
 
 
     // Bullet Enchant Type Change //
+    IEnumerator EnchantTimer()
+    {
+        goldenSwt = false;
+
+        while(goldenTimer > 0.0f)
+        {
+            goldenTimer -= 1f;
+            yield return new WaitForSeconds(1);
+        }
+
+        isGolden = false;
+        goldenSwt = true;
+    }
+
+    
+    // Bullet Enchant Type Change //
     private void BulletEnchantChange()
     {
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
@@ -164,12 +201,10 @@ public class PlayerController : MonoBehaviour
             if ((int)enchantType >= System.Enum.GetNames(typeof(EnchantType)).Length - 1)
             {
                 enchantType = EnchantType.Elec;
-                enchantType_DEBUG = 0;
             }
             else
             {
                 enchantType++;
-                enchantType_DEBUG++;
             }
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0)
@@ -177,15 +212,14 @@ public class PlayerController : MonoBehaviour
             if ((int)enchantType <= 0)
             {
                 enchantType = EnchantType.Ice;
-                enchantType_DEBUG = 2;
             }
             else
             {
                 enchantType--;
-                enchantType_DEBUG--;
             }
         }
 
         weapon.BulletMode(enchantType);
     }
+    
 }
