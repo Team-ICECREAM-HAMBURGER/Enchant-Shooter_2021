@@ -13,17 +13,18 @@ public class WeaponController : MonoBehaviour
     public bool canShoot;
     public GameObject muzzle;
     public GameObject[] bullets;
-    public GameObject razr;
     public GameObject player;
 
     private int bulletType;
     private Rigidbody bulletRigid;
     private GameObject bullet;
     private PlayerController playerController;
+    private ParticleSystem muzzleFX;
 
 
     private void Awake()
     {
+        muzzleFX = transform.GetComponentInChildren<ParticleSystem>();
         playerController = player.GetComponent<PlayerController>();
         ammo_Temp = ammo;
     }
@@ -91,8 +92,13 @@ public class WeaponController : MonoBehaviour
         // Bullet Shoot //
         bullet = Instantiate(bullets[this.bulletType], muzzle.transform.position, Quaternion.identity);
         bulletRigid = bullet.GetComponent<Rigidbody>();
-        bulletRigid.velocity = -transform.forward * 50f;
+        bulletRigid.velocity = muzzle.transform.forward * 50f;
+        //bullet.transform.position += Vector3.right * 50 * Time.deltaTime;
         playerController.animator.SetBool("isFire", true);
+
+        // FX play //
+        muzzleFX.Play();
+
 
         // Shoot Delay //
         yield return new WaitForSeconds(this.shootRate);
