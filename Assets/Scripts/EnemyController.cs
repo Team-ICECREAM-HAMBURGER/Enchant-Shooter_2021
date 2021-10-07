@@ -211,12 +211,6 @@ public class EnemyController : MonoBehaviour
                     break;
             }
         }
-
-        if (collision.gameObject.tag == "Player")
-        {
-            AttackStart();
-            playerController.life -= 1;
-        }
     }
 
 

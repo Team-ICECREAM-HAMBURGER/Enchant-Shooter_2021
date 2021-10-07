@@ -5,19 +5,17 @@ using UnityEngine;
 public class ItemController : MonoBehaviour
 {
     public float actTime;
-
-    private GameObject player;
+    
+    private GameObject playerHand;
     private PlayerController playerController;
     private WeaponType randomWeapon;
-
     private string itemType;
 
 
     private void Awake()
     {
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        player = playerController.gameObject;
-
+        playerHand = GameObject.Find("player_LeftHand.001");
         StartCoroutine("ActivatingTimer");
     }
 
@@ -47,16 +45,16 @@ public class ItemController : MonoBehaviour
                     playerController.weaponType = randomWeapon;
 
                     // UnSelected Gun UnActivate //
-                    for (int i = 0; i < player.transform.childCount; i++)
+                    for (int i = 0; i < playerHand.transform.childCount; i++)
                     {
-                        if (player.transform.GetChild(i).gameObject.activeSelf)
+                        if (playerHand.transform.GetChild(i).gameObject.activeSelf)
                         {
-                            player.transform.GetChild(i).gameObject.SetActive(false);
+                            playerHand.transform.GetChild(i).gameObject.SetActive(false);
                         }
                     }
 
                     // Selected Gun Activate //
-                    player.transform.GetChild((int)randomWeapon).gameObject.SetActive(true);
+                    playerHand.transform.GetChild((int)randomWeapon).gameObject.SetActive(true);
                     break;
             }
         }

@@ -170,7 +170,7 @@ public class PlayerController : MonoBehaviour
                     weapon.canShoot = true;
 
                     this.weaponType = 0;
-                    RPG.SetActive(true);
+                    HG.SetActive(true);
                 }
                 break;
         }
@@ -221,5 +221,15 @@ public class PlayerController : MonoBehaviour
 
         weapon.BulletMode(enchantType);
     }
-    
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            this.life = 0;
+            gameObject.SetActive(false);
+            Debug.Log("GameOver!");
+        }
+    }
 }

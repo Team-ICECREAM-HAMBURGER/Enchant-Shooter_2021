@@ -21,8 +21,6 @@ public class WeaponController : MonoBehaviour
     private PlayerController playerController;
     private ParticleSystem muzzleFX;
 
-    [SerializeField] private float bulletSpeed;
-
 
     private void Awake()
     {
