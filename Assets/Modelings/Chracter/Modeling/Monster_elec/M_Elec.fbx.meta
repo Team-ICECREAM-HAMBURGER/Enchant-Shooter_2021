@@ -12,6 +12,9 @@ ModelImporter:
   - first:
       74: -7551964380084998518
     second: Armature|Run
+  - first:
+      74: 6059336001588132254
+    second: Armature|Die
   externalObjects: {}
   materials:
     materialImportMode: 2
