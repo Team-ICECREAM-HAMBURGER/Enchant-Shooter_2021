@@ -32,31 +32,34 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int hitFireTimer = 1;
     [SerializeField] private bool hitIce;
     [SerializeField] private int hitIceCount;
-
+    [SerializeField] private float dmgMulti = 1.0f;
 
     public Enchant enchant;
     public GameObject player;
 
+    private Material mat;
     private WeaponController weaponController;
     private PlayerController playerController;
     private Animator animator;
     private NavMeshAgent nav;
     private Rigidbody eRB;
     private float smooth = 2.0f;
-    private float dmgMulti;
     private bool isRun;
     private bool isAttack;
     private bool isIdle;
     private bool doDie;
+    private float navSpeed_Temp;
 
 
     private void Awake()
     {
+        mat = GetComponentInChildren<MeshRenderer>().material;
         eRB = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         nav = GetComponentInChildren<NavMeshAgent>();
         weaponController = player.GetComponentInChildren<WeaponController>();
         playerController = player.GetComponent<PlayerController>();
+        navSpeed_Temp = nav.speed;
 
         ChaseStart();
     }
@@ -105,7 +108,7 @@ public class EnemyController : MonoBehaviour
         if (this.life <= 0) 
         {
             GoldenBulletGet();  // Enchant Bullet GET
-            gameObject.SetActive(false);
+            StartCoroutine(Killed());
         }
     }
 
@@ -125,6 +128,16 @@ public class EnemyController : MonoBehaviour
     {
         eRB.velocity = Vector3.zero;
         eRB.angularVelocity = Vector3.zero;
+    }
+
+
+    IEnumerator Killed()
+    {
+        mat.color = Color.gray;
+        nav.isStopped = true;
+
+        yield return new WaitForSeconds(3);
+        gameObject.SetActive(false);
     }
 
 
@@ -161,18 +174,29 @@ public class EnemyController : MonoBehaviour
         this.hitIceCount += 1;
         bulletHit();
 
-        if (this.hitIceCount >= 20)
+        if (this.hitIceCount < 5)
+        {
+            nav.speed -= 1f;
+        }
+        else
         {
             Debug.Log("ICCCCCE");
+            StartCoroutine(IceTimer());
             EnchantReset();
         }
+    }
+
+
+    IEnumerator IceTimer()
+    {
+        yield return new WaitForSeconds(3);
+        nav.speed = navSpeed_Temp;
     }
 
 
     private void EnchantReset()
     {
         this.hitElecCount = 0;
-        this.hitIceCount = 0;
 
         this.hitElec = false;
         this.hitFire = false;
@@ -182,6 +206,7 @@ public class EnemyController : MonoBehaviour
 
     private void bulletHit()
     {
+        Debug.Log("!");
         life -= weaponController.damage * dmgMulti;
     }
 

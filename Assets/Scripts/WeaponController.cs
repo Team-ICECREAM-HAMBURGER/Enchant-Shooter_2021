@@ -91,7 +91,7 @@ public class WeaponController : MonoBehaviour
         // Bullet Shoot //
         bullet = Instantiate(bullets[this.bulletType], muzzle.transform.position, Quaternion.identity);
         bulletRigid = bullet.GetComponent<Rigidbody>();
-        bulletRigid.velocity = muzzle.transform.forward * 50f;
+        bulletRigid.velocity = muzzle.transform.forward * 20f;
         //bullet.transform.Translate(Vector3.forward * 50 * Time.deltaTime);
         playerController.animator.SetBool("isFire", true);
 
