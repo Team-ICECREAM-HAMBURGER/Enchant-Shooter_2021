@@ -33,6 +33,7 @@ public class PlayerController : MonoBehaviour
     public GameObject SG;
     public GameObject RPG;
     public Animator animator;
+    public Vector3 mouseDir;
 
     private Vector3 moveVec;
     private WeaponController weapon;
@@ -107,7 +108,7 @@ public class PlayerController : MonoBehaviour
         
         if (Physics.Raycast(ray, out hit))  // Ray shoot
         {
-            Vector3 mouseDir = (hit.point - transform.position);    // dir = mouse point - player point (Vector - Vector)
+            mouseDir = (hit.point - transform.position);    // dir = mouse point - player point (Vector - Vector)
             mouseDir.y = 0;
             
             // Skip the Height detection

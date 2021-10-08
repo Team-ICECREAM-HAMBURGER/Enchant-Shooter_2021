@@ -89,7 +89,7 @@ public class WeaponController : MonoBehaviour
     IEnumerator Shoot(int gunType)
     {
         // Bullet Shoot //
-        bullet = Instantiate(bullets[this.bulletType], muzzle.transform.position, Quaternion.identity);
+        bullet = Instantiate(bullets[this.bulletType], muzzle.transform.position, Quaternion.Euler(playerController.mouseDir));
         bulletRigid = bullet.GetComponent<Rigidbody>();
         bulletRigid.velocity = muzzle.transform.forward * 20f;
         //bullet.transform.Translate(Vector3.forward * 50 * Time.deltaTime);
