@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2556167589993644007}
   - component: {fileID: 6698929444601183336}
-  - component: {fileID: 3783282503288050677}
   - component: {fileID: 952546199691850690}
+  - component: {fileID: 3783282503288050677}
   m_Layer: 0
   m_Name: Bullet_Elec
   m_TagString: Bullet
@@ -31,6 +31,7 @@ Transform:
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 446603366665328153}
+  - {fileID: 6414822253009642148}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47,18 +48,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.3, y: 0.3, z: 0.3}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3783282503288050677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3013877927385224879}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8819b38d4bfa3c94d8f2425bb048b8ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!54 &952546199691850690
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75,6 +64,84 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 1
+--- !u!114 &3783282503288050677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3013877927385224879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8819b38d4bfa3c94d8f2425bb048b8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &4948384879041229111
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2556167589993644007}
+    m_Modifications:
+    - target: {fileID: 2137581508435874704, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137581508435874710, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+      propertyPath: m_Name
+      value: FX_ElecHit
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+--- !u!4 &6414822253009642148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2137581508435874707, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
+  m_PrefabInstance: {fileID: 4948384879041229111}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8601262111336683824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -200,7 +267,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599404, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_Name
-      value: FX_ElecGun_Projectile
+      value: FX_Elec_Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 8173880719109264369, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity

@@ -36,6 +36,9 @@ public class EnemyController : MonoBehaviour
 
     public Enchant enchant;
     public GameObject player;
+    public ParticleSystem[] iceFX;
+    public ParticleSystem[] fireFX;
+    public ParticleSystem[] elecFX;
 
     private Material mat;
     private WeaponController weaponController;
@@ -147,10 +150,11 @@ public class EnemyController : MonoBehaviour
         {
             dmgMulti = 1.5f;
             hitFireTimer += 1;
-            bulletHit();
+            //bulletHit();
             yield return new WaitForSeconds(1);
         }
 
+        dmgMulti = 1;
         hitFireTimer = 1;
         StopCoroutine(EnchantFire());
     }
@@ -159,11 +163,12 @@ public class EnemyController : MonoBehaviour
     private void EnchantElec()
     {
         this.hitElecCount += 1;
-        bulletHit();
+        //bulletHit();
 
         if (this.hitElecCount >= 10)
         {
             Debug.Log("BOOOOOM");
+            elecFX[0].Play();
             EnchantReset();
         }
     }
@@ -171,11 +176,12 @@ public class EnemyController : MonoBehaviour
 
     private void EnchantIce()
     {
-        this.hitIceCount += 1;
-        bulletHit();
+        //this.iceFX[0].Stop();
+        //bulletHit();
 
         if (this.hitIceCount < 5)
         {
+            this.hitIceCount += 1;
             nav.speed -= 1f;
         }
         else
@@ -189,7 +195,11 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator IceTimer()
     {
+        this.iceFX[0].Play();   // ICE FX Play
+
         yield return new WaitForSeconds(3);
+
+        this.iceFX[0].Stop();   // ICE FX Stop
         nav.speed = navSpeed_Temp;
     }
 
@@ -197,6 +207,7 @@ public class EnemyController : MonoBehaviour
     private void EnchantReset()
     {
         this.hitElecCount = 0;
+        this.hitIceCount = 0;
 
         this.hitElec = false;
         this.hitFire = false;
@@ -206,7 +217,7 @@ public class EnemyController : MonoBehaviour
 
     private void bulletHit()
     {
-        Debug.Log("!");
+        Debug.Log("DMG: " + weaponController.damage * dmgMulti);
         life -= weaponController.damage * dmgMulti;
     }
 
