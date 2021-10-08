@@ -106,9 +106,21 @@ PrefabInstance:
       propertyPath: useRigidbodyForVelocity
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3147429866524542523, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393551568220444416, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4717809679844288642, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619043642388466473, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: moveWithTransform
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8173880717220565489, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
