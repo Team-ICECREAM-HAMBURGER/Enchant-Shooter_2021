@@ -171,10 +171,10 @@ public class EnemyController : MonoBehaviour
 
     private void EnchantElec()
     {
-        this.hitElecCount += 1;
+        //this.hitElecCount += 1;
         //bulletHit();
 
-        if (this.hitElecCount >= 10)
+        if (this.life <= 0)
         {
             Debug.Log("BOOOOOM");
             elecFX[0].Play();
