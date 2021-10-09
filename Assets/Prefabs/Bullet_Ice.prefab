@@ -87,25 +87,89 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 971176205524440243, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5498846
+      objectReference: {fileID: 0}
     - target: {fileID: 971176205973341680, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: playOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176205973341680, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176205973341680, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: NoiseModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176205973341683, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 971176206109936978, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 971176206109936983, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 971176206205728498, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: playOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206205728500, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.45797
       objectReference: {fileID: 0}
     - target: {fileID: 971176206255144450, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 971176206255144450, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: scalingMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206255144450, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: InitialModule.startColor.minColor.a
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206262578454, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206262578455, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_Time
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206262578455, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206262578455, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 125ed6cf7f681dc47acf5d2b6bd4906f, type: 2}
+    - target: {fileID: 971176206262578455, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 971176206965198640, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206965198640, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5728923
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206965198640, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.1936827
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206965198640, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.691066
       objectReference: {fileID: 0}
     - target: {fileID: 971176206965198640, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -159,9 +223,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 971176207050802626, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_Time
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176207050802626, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176207050802626, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_Parameters.widthMultiplier
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176207050802629, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6217192248348513484, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: playOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9010321938369226707, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac03956f4037e944c9fea3c68576359e, type: 3}

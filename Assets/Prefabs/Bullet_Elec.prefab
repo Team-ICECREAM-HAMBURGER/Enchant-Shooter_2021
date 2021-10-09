@@ -173,6 +173,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 411305794341337709, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 429562930839747836, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -184,6 +188,14 @@ PrefabInstance:
     - target: {fileID: 504882984231182153, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704977931674913205, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_Time
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1704977931674913205, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 3147429866524542523, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_IsActive
@@ -201,9 +213,17 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3786116699747091659, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4717809678448874059, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: playOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717809678448874059, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 4717809678620403943, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: playOnAwake
@@ -217,6 +237,10 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4717809679627093873, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 4717809679844288642, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: playOnAwake
       value: 1
@@ -224,6 +248,14 @@ PrefabInstance:
     - target: {fileID: 4717809679844288642, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741024831654840253, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_Time
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5741024831654840253, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: m_MinVertexDistance
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6619043642388466473, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: playOnAwake
@@ -237,9 +269,17 @@ PrefabInstance:
       propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6761642517171852332, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7188719673680052093, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: playOnAwake
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188719673680052093, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7394295673594429653, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: playOnAwake
