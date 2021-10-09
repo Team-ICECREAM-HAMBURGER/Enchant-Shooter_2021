@@ -83,6 +83,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5014612652805768124}
     m_Modifications:
+    - target: {fileID: 971176205524440241, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176205973341680, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206109936978, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206205728498, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 971176206255144450, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 971176206965198640, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -127,12 +147,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 971176206965198643, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 971176206965198645, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: m_Name
       value: Ice_Bullet
       objectReference: {fileID: 0}
     - target: {fileID: 971176206965198645, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217192248348513484, guid: ac03956f4037e944c9fea3c68576359e, type: 3}
+      propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []

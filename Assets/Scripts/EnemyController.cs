@@ -122,7 +122,9 @@ public class EnemyController : MonoBehaviour
         if (enchant != Enchant.Normal)  
         {
             playerController.isGolden = true;
-            playerController.goldenSwt = true;
+            //this.goldenSwt = true;
+            //playerController.goldenTimer = playerController.goldenTimer_Temp;
+            //StartCoroutine(playerController.EnchantTimer());
         }
     }
 
@@ -144,10 +146,17 @@ public class EnemyController : MonoBehaviour
     }
 
 
-    IEnumerator EnchantFire()
+    private void EnchantFire()
+    {
+        StartCoroutine(FireTimer());
+    }
+
+
+    IEnumerator FireTimer()
     {
         while (hitFireTimer < 3)
         {
+            this.fireFX[0].Play();
             dmgMulti = 1.5f;
             hitFireTimer += 1;
             //bulletHit();
@@ -156,7 +165,7 @@ public class EnemyController : MonoBehaviour
 
         dmgMulti = 1;
         hitFireTimer = 1;
-        StopCoroutine(EnchantFire());
+        this.fireFX[0].Stop();
     }
 
 
@@ -183,6 +192,8 @@ public class EnemyController : MonoBehaviour
         {
             this.hitIceCount += 1;
             nav.speed -= 1f;
+
+            this.iceFX[0].Play();   // ICE Hit FX Play
         }
         else
         {
@@ -195,11 +206,12 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator IceTimer()
     {
-        this.iceFX[0].Play();   // ICE FX Play
+        this.iceFX[0].Stop();   // ICE Hit FX Stop
+        this.iceFX[1].Play();   // ICE Explo FX Play
 
         yield return new WaitForSeconds(3);
 
-        this.iceFX[0].Stop();   // ICE FX Stop
+        this.iceFX[1].Stop();   // ICE Explo FX Stop
         nav.speed = navSpeed_Temp;
     }
 
@@ -238,7 +250,7 @@ public class EnemyController : MonoBehaviour
 
                 case EnchantType.Fire:
                     this.hitFire = true;
-                    StartCoroutine(EnchantFire());
+                    EnchantFire();
                     break;
 
                 case EnchantType.Ice:

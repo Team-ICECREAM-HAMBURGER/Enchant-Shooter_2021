@@ -24335,7 +24335,7 @@ GameObject:
   - component: {fileID: 971176206965198643}
   - component: {fileID: 971176206965198642}
   m_Layer: 0
-  m_Name: Ice_Bullet
+  m_Name: FX_Ice_Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24379,7 +24379,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

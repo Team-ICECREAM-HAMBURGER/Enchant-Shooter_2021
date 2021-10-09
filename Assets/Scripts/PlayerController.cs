@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour
     public int life;
     public float moveSpeed;
     public float goldenTimer;
+    public float goldenTimer_Temp;
     public bool isGolden;
-    public bool goldenSwt;
     public GameObject HG;
     public GameObject AR;
     public GameObject SG;
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
     private WeaponController weapon;
     private float hAxis;
     private float vAxis;
-    private float goldenTimer_Temp;
+    private bool isGtimerCall;
 
 
     private void Awake()
@@ -84,16 +84,13 @@ public class PlayerController : MonoBehaviour
         WeaponActive();
 
         // Enchant Bullet Activating //
-        if (isGolden && goldenSwt)          // Timer ON
-        {
-            goldenTimer = goldenTimer_Temp;
-            StartCoroutine(EnchantTimer());
-        }
-        else if (!isGolden && !goldenSwt)   // Timer OUT
+        if (!isGolden)          // Timer OUT
         {
             enchantType = EnchantType.Normal;
+            goldenTimer = goldenTimer_Temp;
+            //StartCoroutine(EnchantTimer());
         }
-        else if (isGolden && !goldenSwt)    // Enchant Bullet Activate
+        else    // Enchant Bullet Activate
         {
             BulletEnchantChange();
         }
@@ -181,7 +178,7 @@ public class PlayerController : MonoBehaviour
     // Bullet Enchant Type Change //
     IEnumerator EnchantTimer()
     {
-        goldenSwt = false;
+        isGtimerCall = true;
 
         while(goldenTimer > 0.0f)
         {
@@ -190,13 +187,20 @@ public class PlayerController : MonoBehaviour
         }
 
         isGolden = false;
-        goldenSwt = true;
+        isGtimerCall = false;
+        enchantType = EnchantType.Normal;
+        weapon.BulletMode(EnchantType.Normal);
     }
 
     
     // Bullet Enchant Type Change //
     private void BulletEnchantChange()
     {
+        if (!isGtimerCall)
+        {
+            StartCoroutine(EnchantTimer());
+        }
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if ((int)enchantType >= System.Enum.GetNames(typeof(EnchantType)).Length - 1)

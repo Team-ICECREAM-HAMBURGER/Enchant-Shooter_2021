@@ -150,6 +150,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 2556167589993644007}
     m_Modifications:
     - target: {fileID: 64543792747452335, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 64543792747452335, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 1
       objectReference: {fileID: 0}
@@ -165,9 +169,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 411305794341337709, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 429562930839747836, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 504882984231182153, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 504882984231182153, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
@@ -178,19 +190,71 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3393551568220444416, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3393551568220444416, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: moveWithTransform
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3786116699747091659, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717809678448874059, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717809678620403943, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717809679239251442, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717809679627093873, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4717809679844288642, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4717809679844288642, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6619043642388466473, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6619043642388466473, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: moveWithTransform
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6761642517171852332, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188719673680052093, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7394295673594429653, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880717220565489, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8173880717220565489, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880717322164705, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173880717322164705, guid: 92630beecfd12144588b63644a51fe21, type: 3}
@@ -198,7 +262,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173880717774516279, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880717774516279, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880718294056796, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718294056796, guid: 92630beecfd12144588b63644a51fe21, type: 3}
@@ -262,12 +334,20 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599402, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880718383599402, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173880718383599404, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: m_Name
       value: FX_Elec_Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173880719109264369, guid: 92630beecfd12144588b63644a51fe21, type: 3}
+      propertyPath: playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8173880719109264369, guid: 92630beecfd12144588b63644a51fe21, type: 3}
       propertyPath: useRigidbodyForVelocity

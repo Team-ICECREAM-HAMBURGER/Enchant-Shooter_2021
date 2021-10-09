@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 962768176265343783}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 6.9}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 7699086625529449086}
@@ -174,9 +174,49 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719556933077915439, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6820154413900223492, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
       propertyPath: m_Name
       value: Fx_Fire_Bullet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6820154413900223492, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6835279914931253060, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
       propertyPath: m_IsActive

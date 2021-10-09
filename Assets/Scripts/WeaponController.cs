@@ -10,21 +10,20 @@ public class WeaponController : MonoBehaviour
     public float damage;
     public float shootRate;
     public int ammo;
+    public int bulletType;
     public bool canShoot;
     public GameObject muzzle;
     public GameObject[] bullets;
     public GameObject player;
 
-    private int bulletType;
     private Rigidbody bulletRigid;
     private GameObject bullet;
     private PlayerController playerController;
-    private ParticleSystem muzzleFX;
+    public ParticleSystem[] muzzleFX;
 
 
     private void Awake()
     {
-        muzzleFX = transform.GetComponentInChildren<ParticleSystem>();
         playerController = player.GetComponent<PlayerController>();
         ammo_Temp = ammo;
     }
@@ -96,7 +95,7 @@ public class WeaponController : MonoBehaviour
         playerController.animator.SetBool("isFire", true);
 
         // FX play //
-        muzzleFX.Play();
+        muzzleFX[this.bulletType].Play();
 
 
         // Shoot Delay //
