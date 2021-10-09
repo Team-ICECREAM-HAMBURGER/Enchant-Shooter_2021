@@ -90,6 +90,10 @@ PrefabInstance:
       propertyPath: scalingMode
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1401047019633641817, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 1837368488344865713, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
       propertyPath: playOnAwake
       value: 1
@@ -117,6 +121,14 @@ PrefabInstance:
     - target: {fileID: 2645552915829789505, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
       propertyPath: scalingMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645552915829789505, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2645552915829789505, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 4333462080835154327, guid: 23c5eeb719ebfcc4fbe4bdc1437b9533, type: 3}
       propertyPath: m_RootOrder

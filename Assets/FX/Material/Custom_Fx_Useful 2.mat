@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_Fx_Hit
+  m_Name: Custom_Fx_Useful 2
   m_Shader: {fileID: 4800000, guid: 67202e94fa9239345824aaa19d7bfd91, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -24,7 +24,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5378bc8bc8d55f1438e286f14ff1bba3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 147b9db91ab7c754eb7fe04dfe177b0a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MaskTex:
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 8226c923bff2d6c4ab0635ebb8898eb2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7fdf2e6df788bda4eae7917891289586, type: 3}
         m_Scale: {x: 2, y: 2}
         m_Offset: {x: 0, y: 0}
     - _tex4coord:

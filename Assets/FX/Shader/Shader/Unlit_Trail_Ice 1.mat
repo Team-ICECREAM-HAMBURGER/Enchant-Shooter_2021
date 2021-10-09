@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Custom_Fx_Hit
-  m_Shader: {fileID: 4800000, guid: 67202e94fa9239345824aaa19d7bfd91, type: 3}
+  m_Name: Unlit_Trail_Ice
+  m_Shader: {fileID: 4800000, guid: e9fdd55b44362534f98ac3e251d3668c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
@@ -19,24 +19,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _DistortTex:
+    - _TextureSample0:
         m_Texture: {fileID: 2800000, guid: 72494ae7842788a45ad8eee4549a37b9, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 5378bc8bc8d55f1438e286f14ff1bba3, type: 3}
+    - _TextureSample2:
+        m_Texture: {fileID: 2800000, guid: 4e3de97d276b3c141b1ae958ecceac27, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _MaskTex:
-        m_Texture: {fileID: 2800000, guid: bcc70485944771444bbe79727ddd62d1, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NoiseTex:
-        m_Texture: {fileID: 2800000, guid: 8226c923bff2d6c4ab0635ebb8898eb2, type: 3}
-        m_Scale: {x: 2, y: 2}
-        m_Offset: {x: 0, y: 0}
-    - _tex4coord:
-        m_Texture: {fileID: 0}
+    - _Trail:
+        m_Texture: {fileID: 2800000, guid: 504fbbcc223dade4d8a3a43b4399af70, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texcoord:
@@ -44,10 +36,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _DistortAmount: 0.0066
     - __dirty: 0
     m_Colors:
-    - _DistortPannerXY: {r: 0.25, g: 0, b: 0, a: 0}
-    - _custom1: {r: 0, g: 0, b: 0, a: 0}
-    - _tint: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
+    - _Color0: {r: 0, g: 0.9248903, b: 1, a: 0}
+    - _Color2: {r: 1, g: 1, b: 1, a: 0}
   m_BuildTextureStacks: []
