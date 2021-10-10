@@ -94,6 +94,13 @@ public class PlayerController : MonoBehaviour
         {
             BulletEnchantChange();
         }
+
+
+        if (this.life <= 0)
+        {
+            gameObject.SetActive(false);
+            Debug.Log("GameOver!");
+        }
     }
 
 
@@ -232,9 +239,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            this.life = 0;
-            gameObject.SetActive(false);
-            Debug.Log("GameOver!");
+            this.life -= 1;
         }
     }
 }

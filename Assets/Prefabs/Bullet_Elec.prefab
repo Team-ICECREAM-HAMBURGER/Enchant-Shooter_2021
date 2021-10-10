@@ -133,7 +133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2137581508435874710, guid: ec7650629a3790f4581985d8da6704ee, type: 3}
       propertyPath: m_Name
-      value: FX_ElecHit
+      value: FX_Elec_Hit
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec7650629a3790f4581985d8da6704ee, type: 3}

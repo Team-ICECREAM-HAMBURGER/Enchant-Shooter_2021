@@ -24,7 +24,6 @@ public enum Stat
 public class EnemyController : MonoBehaviour
 {
     [SerializeField] private float life;
-    [SerializeField] private int attackPower;
     [SerializeField] private int score;    
     [SerializeField] private bool hitElec;
     [SerializeField] private int hitElecCount;
