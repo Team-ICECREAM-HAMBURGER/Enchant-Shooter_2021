@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
 
         // Weapon Activate & Shoot //
         WeaponActive();

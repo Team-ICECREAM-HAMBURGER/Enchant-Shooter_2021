@@ -47,7 +47,7 @@ public class UIController : MonoBehaviour
 
     public void PauseButton()
     {
-        Cursor.visible = true;
+        //Cursor.visible = true;
         Debug.Log("Pause");
         pauseWin.SetActive(true);
         Time.timeScale = 0; // Game pause;
