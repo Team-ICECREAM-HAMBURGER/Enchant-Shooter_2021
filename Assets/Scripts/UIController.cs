@@ -6,11 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
-    public GameObject PauseWin;
-    public GameObject[] Hearts;
+    public GameObject gameOverWin;
+    public GameObject pauseWin;
+    public GameObject[] hearts;
+    public GameObject[] weaponsIcon;
     public PlayerController player;
     public Text ammoText;
-    
+    public Text scoreText;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -22,19 +25,29 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         PlayerLifeInfo();
-        
+        GameOver();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseButton();
+        }
+
     }
+    
 
     private void LateUpdate()
     {
         PlayerAmmoInfo();
+        PlayerWeaponInfo();
+        PlayerScoreInfo();
     }
 
 
     public void PauseButton()
     {
+        Cursor.visible = true;
         Debug.Log("Pause");
-        PauseWin.SetActive(true);
+        pauseWin.SetActive(true);
         Time.timeScale = 0; // Game pause;
     }
 
@@ -56,7 +69,7 @@ public class UIController : MonoBehaviour
     public void WindowCloseButton()
     {
         Debug.Log("Restore");
-        PauseWin.SetActive(false);
+        pauseWin.SetActive(false);
         Time.timeScale = 1;
     }
 
@@ -67,19 +80,19 @@ public class UIController : MonoBehaviour
 
         if (player.isHit)
         {
-            Hearts[player.life].SetActive(false);
+            hearts[player.life].SetActive(false);
         }
 
         if (player.isHealGet && player.life <= 3)
         {
-            Hearts[player.life-1].SetActive(true);
+            hearts[player.life-1].SetActive(true);
         }
         
         if (player.isShield)
         {
-            for (int i = player.life; i < Hearts.Length; i++)
+            for (int i = player.life; i < hearts.Length; i++)
             {
-                Hearts[i].SetActive(true);
+                hearts[i].SetActive(true);
             }
             player.life = 7;
             player.isShield = false;
@@ -93,9 +106,46 @@ public class UIController : MonoBehaviour
     }
 
 
+    public void PlayerWeaponInfo()
+    {
+        switch (player.weaponType)
+        {
+            case WeaponType.HG:
+                WeaponsIconSet(0);
+                break;
+            case WeaponType.AR:
+                WeaponsIconSet(1);
+                break;
+            case WeaponType.SG:
+                WeaponsIconSet(2);
+                break;
+            case WeaponType.RPG:
+                WeaponsIconSet(3);
+                break;
+        }
+    }
+
+
+    private void WeaponsIconSet(int index)
+    {
+        for (int i = 0; i < weaponsIcon.Length; i++)
+        {
+            if (index != i)
+            {
+                weaponsIcon[i].SetActive(false);
+            }
+            else
+            {
+                weaponsIcon[i].SetActive(true);
+            }
+        }
+    }
+
+
     public void PlayerScoreInfo()
     {
-
+        Debug.Log("!");
+        scoreText.text = player.scoreAll + "P";
     }
 
 
@@ -105,9 +155,12 @@ public class UIController : MonoBehaviour
     }
 
 
-    public void PlayerWeaponInfo()
+    public void GameOver()
     {
-
+        if (!player.gameObject.activeSelf)
+        {
+            Time.timeScale = 0;
+            gameOverWin.SetActive(true);
+        }
     }
-
 }

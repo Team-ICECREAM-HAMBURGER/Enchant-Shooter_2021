@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     public WeaponType weaponType;
     public EnchantType enchantType;
     public int life;
+    public int scoreAll;
     public float moveSpeed;
     public float goldenTimer;
     public float goldenTimer_Temp;
@@ -45,10 +46,9 @@ public class PlayerController : MonoBehaviour
     private bool isGtimerCall;
 
 
-
-
     private void Awake()
     {
+        scoreAll = 0;
         goldenTimer_Temp = goldenTimer; // Golden Timer Backup
     }
 
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //Cursor.visible = false;
+        Cursor.visible = false;
 
         // Weapon Activate & Shoot //
         WeaponActive();
@@ -247,6 +247,11 @@ public class PlayerController : MonoBehaviour
         {
             this.life -= 1;
             isHit = true;
+        }
+
+        if (collision.gameObject.tag == "Trap")
+        {
+            this.life = 0;
         }
     }
 }

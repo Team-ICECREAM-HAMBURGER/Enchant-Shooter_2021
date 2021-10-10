@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3a5ce9975452ca43ae87dec8df9d5d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 500
   hitElec: 0
   hitElecCount: 0
   hitFire: 0
@@ -161,7 +160,6 @@ MonoBehaviour:
   hitIce: 0
   hitIceCount: 0
   dmgMulti: 1
-  life: 10
   enchant: 1
   iceFX:
   - {fileID: 1818592909886944175}
@@ -170,6 +168,8 @@ MonoBehaviour:
   - {fileID: 4416973378065520391}
   elecFX:
   - {fileID: 7607247421006360459}
+  score: 100
+  life: 10
 --- !u!195 &4558514524077043478
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -184,7 +184,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
-  m_StoppingDistance: 3
+  m_StoppingDistance: 2
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -509,8 +509,12 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6255860486379122470, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
-      propertyPath: CollisionModule.collidesWith.m_Bits
+      propertyPath: CollisionModule.collisionMessages
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255860486379122470, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 6255860486379122471, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
       propertyPath: m_RootOrder
@@ -575,6 +579,18 @@ PrefabInstance:
     - target: {fileID: 6733598281356372256, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6733598281356372256, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6733598281356372256, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6733598281356372261, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7181639333469388218, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
       propertyPath: playOnAwake

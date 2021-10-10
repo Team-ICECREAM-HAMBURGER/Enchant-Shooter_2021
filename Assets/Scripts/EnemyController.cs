@@ -22,8 +22,7 @@ public enum Stat
 
 
 public class EnemyController : MonoBehaviour
-{
-    [SerializeField] private int score;    
+{  
     [SerializeField] private bool hitElec;
     [SerializeField] private int hitElecCount;
     [SerializeField] private bool hitFire;
@@ -32,11 +31,13 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int hitIceCount;
     [SerializeField] private float dmgMulti = 1.0f;
 
-    public float life;
+
     public Enchant enchant;
     public ParticleSystem[] iceFX;
     public ParticleSystem[] fireFX;
     public ParticleSystem[] elecFX;
+    public int score;
+    public float life;
 
     private GameObject player;
     private Material mat;
@@ -138,6 +139,7 @@ public class EnemyController : MonoBehaviour
     {
         mat.color = Color.gray;
         nav.isStopped = true;
+        gameObject.GetComponent<BoxCollider>().enabled = false;
 
         animator.SetTrigger("doDie");
         this.doDie = true; this.isRun = false; this.isAttack = false;
@@ -240,6 +242,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Bullet")
         {
             Debug.Log("hit");
+            playerController.scoreAll += this.score;
             bulletHit();
 
             switch (playerController.enchantType)

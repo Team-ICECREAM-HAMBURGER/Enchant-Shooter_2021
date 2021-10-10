@@ -54,10 +54,19 @@ public class GameController : MonoBehaviour
 
         Vector3 iSpawnPos = new Vector3(ranX, 0.6f, ranZ);
 
+        Ray ray;
+        RaycastHit hit;
+
+        if (Physics.Raycast(iSpawnPos, Vector3.down, out hit))
+        {
+            if (hit.transform.tag != "Trap")
+            {
+                Instantiate(items[index], iSpawnPos, Quaternion.identity);
+            }
+        }
+
         //yield return new WaitForSeconds(itemSpawnRate);
-
-        Instantiate(items[index], iSpawnPos, Quaternion.identity);
-
+        //Instantiate(items[index], iSpawnPos, Quaternion.identity);
         //yield return null;
     }
 
@@ -76,8 +85,7 @@ public class GameController : MonoBehaviour
 
         if (Physics.Raycast(enemySpawnPos, Vector3.down, out hit))
         {
-            Debug.Log("pos: " + hit.transform.tag);
-            if(hit.transform.tag != "Enemy")
+            if (hit.transform.tag != "Trap")
             {
                 Instantiate(enemies[index], enemySpawnPos, Quaternion.identity);
             }
