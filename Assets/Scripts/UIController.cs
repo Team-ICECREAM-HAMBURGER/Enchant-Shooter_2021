@@ -22,6 +22,11 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         PlayerLifeInfo();
+        
+    }
+
+    private void LateUpdate()
+    {
         PlayerAmmoInfo();
     }
 

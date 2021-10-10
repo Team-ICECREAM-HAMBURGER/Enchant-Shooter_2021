@@ -139,8 +139,12 @@ public class EnemyController : MonoBehaviour
         mat.color = Color.gray;
         nav.isStopped = true;
 
+        animator.SetTrigger("doDie");
+        this.doDie = true; this.isRun = false; this.isAttack = false;
+
         yield return new WaitForSeconds(3);
         gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
 
