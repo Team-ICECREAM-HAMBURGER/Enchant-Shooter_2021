@@ -29,6 +29,8 @@ public class PlayerController : MonoBehaviour
     public float goldenTimer_Temp;
     public bool isGolden;
     public bool isHit;
+    public bool isHealGet;
+    public bool isSheldGet;
     public GameObject HG;
     public GameObject AR;
     public GameObject SG;
@@ -41,6 +43,8 @@ public class PlayerController : MonoBehaviour
     private float hAxis;
     private float vAxis;
     private bool isGtimerCall;
+
+
 
 
     private void Awake()

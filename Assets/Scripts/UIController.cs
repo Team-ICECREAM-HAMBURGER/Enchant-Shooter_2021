@@ -8,9 +8,9 @@ public class UIController : MonoBehaviour
 {
     public GameObject PauseWin;
     public GameObject[] Hearts;
-
     public PlayerController player;
 
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -57,12 +57,32 @@ public class UIController : MonoBehaviour
 
     public void PlayerLifeInfo()
     {
-        if (player.life < 3)
+        Debug.Log(player.life);
+
+        if (player.isHit)
         {
-            int index = (Hearts.Length - player.life) - 1;
-            Debug.Log(index);
-            Hearts[index].SetActive(false);
+            Hearts[player.life].SetActive(false);
         }
+
+        if (player.isHealGet)
+        {
+            Hearts[player.life-1].SetActive(true);
+        }
+        
+        if (player.isSheldGet)
+        {
+            for (int i = 3; i < 7; i++)
+            {
+                Hearts[i].SetActive(true);
+            }
+            
+        }
+        
+
+
+
+
+
     }
 
 

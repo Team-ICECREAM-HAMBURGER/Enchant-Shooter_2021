@@ -24,14 +24,17 @@ public class GameController : MonoBehaviour
     public void HitFX(Vector3 hitPos, string bulletName)
     {
         switch(bulletName) {
-            case "Bullet_Elec(Clone)":
+            case "Bullet_Normal(Clone)":
                 index = 0;
                 break;
-            case "Bullet_Fire(Clone)":
+            case "Bullet_Elec(Clone)":
                 index = 1;
                 break;
-            case "Bullet_Ice(Clone)":
+            case "Bullet_Fire(Clone)":
                 index = 2;
+                break;
+            case "Bullet_Ice(Clone)":
+                index = 3;
                 break;
         }
 
