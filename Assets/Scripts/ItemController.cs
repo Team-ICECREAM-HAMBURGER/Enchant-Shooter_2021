@@ -38,8 +38,8 @@ public class ItemController : MonoBehaviour
                     }
                     break;
                 case "Items_Shield(Clone)":    // HP -> 7
-                    playerController.life = 7;
-                    playerController.isSheldGet = true;
+                    //playerController.life = 7;
+                    playerController.isShield = true;
                     break;
                 case "Items_Gun(Clone)":       // Gun Random Pick-Up
                     // Gun Random Select //

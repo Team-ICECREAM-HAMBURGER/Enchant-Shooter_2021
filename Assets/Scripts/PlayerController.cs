@@ -30,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public bool isGolden;
     public bool isHit;
     public bool isHealGet;
-    public bool isSheldGet;
+    public bool isShield;
     public GameObject HG;
     public GameObject AR;
     public GameObject SG;

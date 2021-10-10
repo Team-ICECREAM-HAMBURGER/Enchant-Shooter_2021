@@ -64,25 +64,20 @@ public class UIController : MonoBehaviour
             Hearts[player.life].SetActive(false);
         }
 
-        if (player.isHealGet)
+        if (player.isHealGet && player.life <= 3)
         {
             Hearts[player.life-1].SetActive(true);
         }
         
-        if (player.isSheldGet)
+        if (player.isShield)
         {
-            for (int i = 3; i < 7; i++)
+            for (int i = player.life; i < Hearts.Length; i++)
             {
                 Hearts[i].SetActive(true);
             }
-            
+            player.life = 7;
+            player.isShield = false;
         }
-        
-
-
-
-
-
     }
 
 
