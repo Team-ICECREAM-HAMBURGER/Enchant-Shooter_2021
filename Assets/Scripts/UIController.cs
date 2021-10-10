@@ -10,6 +10,7 @@ public class UIController : MonoBehaviour
     public GameObject pauseWin;
     public GameObject[] hearts;
     public GameObject[] weaponsIcon;
+    public GameObject[] enchantIcon;
     public PlayerController player;
     public Text ammoText;
     public Text scoreText;
@@ -24,6 +25,7 @@ public class UIController : MonoBehaviour
 
     private void Update()
     {
+        PlayerEnchantInfo();
         PlayerLifeInfo();
         GameOver();
 
@@ -102,8 +104,39 @@ public class UIController : MonoBehaviour
 
     public void PlayerEnchantInfo()
     {
-
+        switch (player.enchantType)
+        {
+            case EnchantType.Normal:
+                EnchantIconSet(0);
+                break;
+            case EnchantType.Elec:
+                EnchantIconSet(1);
+                break;
+            case EnchantType.Fire:
+                EnchantIconSet(2);
+                break;
+            case EnchantType.Ice:
+                EnchantIconSet(3);
+                break;
+        }
     }
+
+
+    private void EnchantIconSet(int index)
+    {
+        for (int i = 0; i < enchantIcon.Length; i++)
+        {
+            if (index != i)
+            {
+                enchantIcon[i].SetActive(false);
+            }
+            else
+            {
+                enchantIcon[i].SetActive(true);
+            }
+        }
+    }
+
 
 
     public void PlayerWeaponInfo()
