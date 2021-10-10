@@ -266,6 +266,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             isRun = true;
+            playerController.isHit = false;
         }
     }
 }

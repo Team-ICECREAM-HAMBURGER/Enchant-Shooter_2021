@@ -28,6 +28,7 @@ public class PlayerController : MonoBehaviour
     public float goldenTimer;
     public float goldenTimer_Temp;
     public bool isGolden;
+    public bool isHit;
     public GameObject HG;
     public GameObject AR;
     public GameObject SG;
@@ -237,9 +238,10 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" && !isHit)
         {
             this.life -= 1;
+            isHit = true;
         }
     }
 }
