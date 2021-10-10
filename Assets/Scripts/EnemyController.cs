@@ -23,7 +23,6 @@ public enum Stat
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private float life;
     [SerializeField] private int score;    
     [SerializeField] private bool hitElec;
     [SerializeField] private int hitElecCount;
@@ -33,6 +32,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int hitIceCount;
     [SerializeField] private float dmgMulti = 1.0f;
 
+    public float life;
     public Enchant enchant;
     public ParticleSystem[] iceFX;
     public ParticleSystem[] fireFX;
@@ -40,10 +40,10 @@ public class EnemyController : MonoBehaviour
 
     private GameObject player;
     private Material mat;
-    private PlayerController playerController;
     private Animator animator;
     private NavMeshAgent nav;
     private Rigidbody eRB;
+    private PlayerController playerController;
     private float smooth = 2.0f;
     private bool isRun;
     private bool isAttack;

@@ -169,7 +169,6 @@ MonoBehaviour:
   - {fileID: 4416973378065520391}
   elecFX:
   - {fileID: 7607247421006360459}
-  player: {fileID: 7666249958909141514, guid: b5bd50edc3b92b24b97a5243ac86d644, type: 3}
 --- !u!195 &4558514524077043478
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -480,6 +479,18 @@ PrefabInstance:
     - target: {fileID: 6255860486379122470, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
       propertyPath: playOnAwake
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255860486379122470, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255860486379122470, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6255860486379122470, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6255860486379122471, guid: 99c65ebef14fc0141910c466a68271fe, type: 3}
       propertyPath: m_RootOrder
