@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Unlit_Trail_Ice
+  m_Name: Unlit_Trail_Ice 1
   m_Shader: {fileID: 4800000, guid: e9fdd55b44362534f98ac3e251d3668c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -38,6 +38,6 @@ Material:
     m_Floats:
     - __dirty: 0
     m_Colors:
-    - _Color0: {r: 0, g: 0.9248903, b: 1, a: 0}
-    - _Color2: {r: 1, g: 1, b: 1, a: 0}
+    - _Color0: {r: 0.995283, g: 0.9996485, b: 1, a: 0}
+    - _Color2: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 0}
   m_BuildTextureStacks: []
