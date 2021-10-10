@@ -9686,7 +9686,6 @@ GameObject:
   - component: {fileID: 2128710914712869524}
   - component: {fileID: 2128710914712869527}
   - component: {fileID: 2128710914712869526}
-  - component: {fileID: 2128710914712869529}
   - component: {fileID: 1651910186}
   - component: {fileID: 1351544901203343815}
   m_Layer: 0
@@ -14484,22 +14483,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!111 &2128710914712869529
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2128710914712869528}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 7a6d6c2696241f9449a99a06727f1b73, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 7a6d6c2696241f9449a99a06727f1b73, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &1651910186
 MonoBehaviour:
   m_ObjectHideFlags: 0
