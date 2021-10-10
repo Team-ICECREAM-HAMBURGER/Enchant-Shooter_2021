@@ -36,10 +36,10 @@ public class PlayerController : MonoBehaviour
     public GameObject SG;
     public GameObject RPG;
     public Animator animator;
+    public WeaponController weapon;
     public Vector3 mouseDir;
 
     private Vector3 moveVec;
-    private WeaponController weapon;
     private float hAxis;
     private float vAxis;
     private bool isGtimerCall;
@@ -133,6 +133,7 @@ public class PlayerController : MonoBehaviour
         {
             case WeaponType.HG:
                 weapon = HG.GetComponent<WeaponController>();
+                //weapon.canShoot = true;
                 weapon.GunMode((int)WeaponType.HG);
                 break;
 
@@ -143,11 +144,11 @@ public class PlayerController : MonoBehaviour
                 // IF, Weapon's Load OUT, Change to HG //
                 if (weapon.ammo <= 0)
                 {
-                    weapon.gameObject.SetActive(false);
                     weapon.ammo = weapon.ammo_Temp;
                     weapon.canShoot = true;
 
                     this.weaponType = 0;
+                    weapon.gameObject.SetActive(false);
                     HG.SetActive(true);
                 }
                 break;
@@ -159,11 +160,11 @@ public class PlayerController : MonoBehaviour
                 // IF, Weapon's Load OUT, Change to HG //
                 if (weapon.ammo <= 0)
                 {
-                    weapon.gameObject.SetActive(false);
                     weapon.ammo = weapon.ammo_Temp;
                     weapon.canShoot = true;
 
                     this.weaponType = 0;
+                    weapon.gameObject.SetActive(false);
                     HG.SetActive(true);
                 }
                 break;
@@ -175,11 +176,11 @@ public class PlayerController : MonoBehaviour
                 // IF, Weapon's Load OUT, Change to HG //
                 if (weapon.ammo <= 0)
                 {
-                    weapon.gameObject.SetActive(false);
                     weapon.ammo = weapon.ammo_Temp;
                     weapon.canShoot = true;
 
                     this.weaponType = 0;
+                    weapon.gameObject.SetActive(false);
                     HG.SetActive(true);
                 }
                 break;

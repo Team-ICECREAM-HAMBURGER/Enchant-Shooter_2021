@@ -9,7 +9,7 @@ public class UIController : MonoBehaviour
     public GameObject PauseWin;
     public GameObject[] Hearts;
     public PlayerController player;
-
+    public Text ammoText;
     
 
     // Start is called before the first frame update
@@ -22,6 +22,7 @@ public class UIController : MonoBehaviour
     private void Update()
     {
         PlayerLifeInfo();
+        PlayerAmmoInfo();
     }
 
 
@@ -95,7 +96,7 @@ public class UIController : MonoBehaviour
 
     public void PlayerAmmoInfo()
     {
-
+        ammoText.text = player.weapon.ammo + " / " + player.weapon.ammo_Temp;
     }
 
 

@@ -94,6 +94,7 @@ public class WeaponController : MonoBehaviour
         //bullet.transform.Translate(Vector3.forward * 50 * Time.deltaTime);
         playerController.animator.SetBool("isFire", true);
 
+
         // FX play //
         muzzleFX[this.bulletType].Play();
 

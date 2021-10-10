@@ -45,6 +45,7 @@ public class ItemController : MonoBehaviour
                     // Gun Random Select //
                     randomWeapon = (WeaponType)Random.Range(1, 4);
                     playerController.weaponType = randomWeapon;
+                    playerController.weapon.canShoot = true;
 
                     // UnSelected Gun UnActivate //
                     for (int i = 0; i < playerHand.transform.childCount; i++)
@@ -57,6 +58,7 @@ public class ItemController : MonoBehaviour
 
                     // Selected Gun Activate //
                     playerHand.transform.GetChild((int)randomWeapon).gameObject.SetActive(true);
+
                     break;
             }
         }

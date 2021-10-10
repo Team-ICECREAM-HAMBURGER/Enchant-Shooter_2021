@@ -34,13 +34,12 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float dmgMulti = 1.0f;
 
     public Enchant enchant;
-    public GameObject player;
     public ParticleSystem[] iceFX;
     public ParticleSystem[] fireFX;
     public ParticleSystem[] elecFX;
 
+    private GameObject player;
     private Material mat;
-    private WeaponController weaponController;
     private PlayerController playerController;
     private Animator animator;
     private NavMeshAgent nav;
@@ -59,7 +58,7 @@ public class EnemyController : MonoBehaviour
         eRB = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         nav = GetComponentInChildren<NavMeshAgent>();
-        weaponController = player.GetComponentInChildren<WeaponController>();
+        player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
         navSpeed_Temp = nav.speed;
 
@@ -228,8 +227,7 @@ public class EnemyController : MonoBehaviour
 
     private void bulletHit()
     {
-        Debug.Log("DMG: " + weaponController.damage * dmgMulti);
-        life -= weaponController.damage * dmgMulti;
+        life -= playerController.weapon.damage * dmgMulti;
     }
 
 
@@ -258,6 +256,13 @@ public class EnemyController : MonoBehaviour
                     break;
             }
         }
+
+        /*
+        if (collision.gameObject.tag == "Player")
+        {
+            AttackStart();
+        }
+        */
     }
 
 

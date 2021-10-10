@@ -5,10 +5,11 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public ParticleSystem[] bulletHitFX;
-    public GameObject[] Items;
-
+    public GameObject[] items;
+    public GameObject[] enemies;
+    
     [SerializeField] private float itemSpawnRate;
-
+    [SerializeField] private float enemySpawnRate;
 
     private int index;
 
@@ -17,6 +18,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         InvokeRepeating("ItemRandomSpawn", itemSpawnRate, itemSpawnRate);
+        InvokeRepeating("EnemySpawn", enemySpawnRate, enemySpawnRate);
     }
 
 
@@ -54,8 +56,33 @@ public class GameController : MonoBehaviour
 
         //yield return new WaitForSeconds(itemSpawnRate);
 
-        Instantiate(Items[index], iSpawnPos, Quaternion.identity);
+        Instantiate(items[index], iSpawnPos, Quaternion.identity);
 
         //yield return null;
     }
+
+
+    private void EnemySpawn()
+    {
+        float enRanX = Random.Range(-9, 42);
+        float enRanZ = Random.Range(-9, 29);
+
+        int index = Random.Range(0, 4);
+
+        Vector3 enemySpawnPos = new Vector3(enRanX, 0.6f, enRanZ);
+
+        Ray ray;
+        RaycastHit hit;
+
+        if (Physics.Raycast(enemySpawnPos, Vector3.down, out hit))
+        {
+            Debug.Log("pos: " + hit.transform.tag);
+            if(hit.transform.tag != "Enemy")
+            {
+                Instantiate(enemies[index], enemySpawnPos, Quaternion.identity);
+            }
+        }
+
+    }
+
 }
