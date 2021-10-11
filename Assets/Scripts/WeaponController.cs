@@ -51,7 +51,6 @@ public class WeaponController : MonoBehaviour
                     canShoot = false;
                 }
                 break;
-
             case 1: // AR
                 if (Input.GetMouseButton(0) && canShoot)
                 {

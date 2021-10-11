@@ -48,7 +48,7 @@ public class UIController : MonoBehaviour
     public void PauseButton()
     {
         //Cursor.visible = true;
-        Debug.Log("Pause");
+        //Debug.Log("Pause");
         pauseWin.SetActive(true);
         Time.timeScale = 0; // Game pause;
     }
@@ -56,21 +56,21 @@ public class UIController : MonoBehaviour
 
     public void RestartButton()
     {
-        Debug.Log("Restart");
+        //Debug.Log("Restart");
         SceneManager.LoadScene("Map");
     }
 
 
     public void GameExitButton()
     {
-        Debug.Log("Exit");
+        //Debug.Log("Exit");
         Application.Quit();
     }
 
 
     public void WindowCloseButton()
     {
-        Debug.Log("Restore");
+        //Debug.Log("Restore");
         pauseWin.SetActive(false);
         Time.timeScale = 1;
     }
@@ -78,7 +78,7 @@ public class UIController : MonoBehaviour
 
     public void PlayerLifeInfo()
     {
-        Debug.Log(player.life);
+        //Debug.Log(player.life);
 
         if (player.isHit)
         {
@@ -177,7 +177,7 @@ public class UIController : MonoBehaviour
 
     public void PlayerScoreInfo()
     {
-        Debug.Log("!");
+        //Debug.Log("!");
         scoreText.text = player.scoreAll + "P";
     }
 

@@ -49,6 +49,7 @@ public class EnemyController : MonoBehaviour
     private bool isRun;
     private bool isAttack;
     private bool isIdle;
+    private bool isBoom;
     private bool doDie;
     private float navSpeed_Temp;
 
@@ -97,9 +98,10 @@ public class EnemyController : MonoBehaviour
             nav.SetDestination(player.transform.position);
             ChaseStart();
 
-            Vector3 relativePos = (player.transform.position - gameObject.transform.position).normalized;
-            relativePos.y = 0;
-            transform.LookAt(player.transform.position);
+            if (!doDie && !isBoom)
+            {
+                transform.LookAt(player.transform.position);
+            }
         }
         else
         {
@@ -109,6 +111,7 @@ public class EnemyController : MonoBehaviour
         // Enemy DEATH //
         if (this.life <= 0) 
         {
+            mat.color = Color.gray;
             GoldenBulletGet();  // Enchant Bullet GET
             StartCoroutine(Killed());
         }
@@ -137,7 +140,6 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator Killed()
     {
-        mat.color = Color.gray;
         nav.isStopped = true;
         gameObject.GetComponent<BoxCollider>().enabled = false;
 
@@ -178,7 +180,7 @@ public class EnemyController : MonoBehaviour
         //this.hitElecCount += 1;
         //bulletHit();
 
-        if (this.life <= 0)
+        if (doDie)  // this.life <= 0
         {
             Debug.Log("BOOOOOM");
             elecFX[0].Play();
@@ -210,11 +212,13 @@ public class EnemyController : MonoBehaviour
 
     IEnumerator IceTimer()
     {
+        this.isBoom = true; 
         this.iceFX[0].Stop();   // ICE Hit FX Stop
         this.iceFX[1].Play();   // ICE Explo FX Play
 
         yield return new WaitForSeconds(3);
 
+        this.isBoom = false;
         this.iceFX[1].Stop();   // ICE Explo FX Stop
         nav.speed = navSpeed_Temp;
     }
@@ -264,12 +268,12 @@ public class EnemyController : MonoBehaviour
             }
         }
 
-        /*
+        
         if (collision.gameObject.tag == "Player")
         {
-            AttackStart();
+            isRun = false;
         }
-        */
+        
     }
 
 

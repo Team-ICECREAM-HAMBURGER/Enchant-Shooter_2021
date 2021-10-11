@@ -65,13 +65,13 @@ public class PlayerController : MonoBehaviour
 
         if (moveVec != Vector3.zero)
         {
-            Debug.Log("ON MOVING!");
+            //Debug.Log("ON MOVING!");
             animator.SetBool("isRun", true);
             animator.SetBool("isIdle", false);
         }
         else
         {
-            Debug.Log("NOT MOVING!");
+            //Debug.Log("NOT MOVING!");
             animator.SetBool("isIdle", true);
             animator.SetBool("isRun", false);
         }
@@ -84,7 +84,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //Cursor.visible = false;
-
+        
         // Weapon Activate & Shoot //
         WeaponActive();
 
@@ -100,11 +100,10 @@ public class PlayerController : MonoBehaviour
             BulletEnchantChange();
         }
 
-
         if (this.life <= 0)
         {
             gameObject.SetActive(false);
-            Debug.Log("GameOver!");
+            //Debug.Log("GameOver!");
         }
     }
 
@@ -136,54 +135,37 @@ public class PlayerController : MonoBehaviour
                 //weapon.canShoot = true;
                 weapon.GunMode((int)WeaponType.HG);
                 break;
-
             case WeaponType.AR:
                 weapon = AR.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.AR);
-
-                // IF, Weapon's Load OUT, Change to HG //
-                if (weapon.ammo <= 0)
-                {
-                    weapon.ammo = weapon.ammo_Temp;
-                    weapon.canShoot = true;
-
-                    this.weaponType = 0;
-                    weapon.gameObject.SetActive(false);
-                    HG.SetActive(true);
-                }
+                WeaponReset(weapon);
                 break;
-
             case WeaponType.SG:
                 weapon = SG.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.SG);
-
-                // IF, Weapon's Load OUT, Change to HG //
-                if (weapon.ammo <= 0)
-                {
-                    weapon.ammo = weapon.ammo_Temp;
-                    weapon.canShoot = true;
-
-                    this.weaponType = 0;
-                    weapon.gameObject.SetActive(false);
-                    HG.SetActive(true);
-                }
+                WeaponReset(weapon);
                 break;
-
             case WeaponType.RPG:
                 weapon = RPG.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.RPG);
-
-                // IF, Weapon's Load OUT, Change to HG //
-                if (weapon.ammo <= 0)
-                {
-                    weapon.ammo = weapon.ammo_Temp;
-                    weapon.canShoot = true;
-
-                    this.weaponType = 0;
-                    weapon.gameObject.SetActive(false);
-                    HG.SetActive(true);
-                }
+                WeaponReset(weapon);
                 break;
+        }
+    }
+
+
+    private void WeaponReset(WeaponController weapon)
+    {
+        Debug.Log("!!!!: " + weapon.gameObject.name);
+        // IF, Weapon's Load OUT, Change to HG //
+        if (weapon.ammo <= 0)
+        {
+            weapon.ammo = weapon.ammo_Temp;
+            weapon.canShoot = true;
+            
+            weapon.gameObject.SetActive(false);
+            this.weaponType = 0;
+            HG.SetActive(true);
         }
     }
 
