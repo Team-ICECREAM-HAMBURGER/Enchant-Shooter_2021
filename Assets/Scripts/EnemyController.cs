@@ -96,6 +96,11 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        if (playerController.weaponType == WeaponType.RPG)
+        {
+            this.isRPG = true;
+        }
+
         if (isRun)  // Animation; Run
         {
             // Move To Player //
@@ -246,10 +251,11 @@ public class EnemyController : MonoBehaviour
 
     private void bulletHit()
     {
-        if (playerController.weaponType == WeaponType.RPG)
+        if (this.isRPG)
         {
             life = 0;
             Debug.Log(dmgMulti);
+            this.isRPG = false;
         }
         life -= playerController.weapon.damage * dmgMulti;
     }
