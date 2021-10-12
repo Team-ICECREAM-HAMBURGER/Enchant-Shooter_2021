@@ -31,7 +31,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int hitIceCount;
     [SerializeField] private float dmgMulti = 1.0f;
 
-
     public Enchant enchant;
     public ParticleSystem[] iceFX;
     public ParticleSystem[] fireFX;
@@ -45,12 +44,14 @@ public class EnemyController : MonoBehaviour
     private NavMeshAgent nav;
     private Rigidbody eRB;
     private PlayerController playerController;
+    private UIController uiController;
     private float smooth = 2.0f;
     private bool isRun;
     private bool isAttack;
     private bool isIdle;
     private bool isBoom;
     private bool doDie;
+    private bool goldenGet;
     private float navSpeed_Temp;
 
 
@@ -62,6 +63,7 @@ public class EnemyController : MonoBehaviour
         nav = GetComponentInChildren<NavMeshAgent>();
         player = GameObject.Find("Player");
         playerController = player.GetComponent<PlayerController>();
+        uiController = GameObject.Find("Canvas").GetComponent<UIController>();
         navSpeed_Temp = nav.speed;
 
         ChaseStart();
@@ -111,6 +113,7 @@ public class EnemyController : MonoBehaviour
         // Enemy DEATH //
         if (this.life <= 0) 
         {
+            this.doDie = true;
             mat.color = Color.gray;
             GoldenBulletGet();  // Enchant Bullet GET
             StartCoroutine(Killed());
@@ -144,10 +147,18 @@ public class EnemyController : MonoBehaviour
         gameObject.GetComponent<BoxCollider>().enabled = false;
 
         animator.SetTrigger("doDie");
-        this.doDie = true; this.isRun = false; this.isAttack = false;
+        
+        if (!uiController.enemyKilledSwt)
+        {
+            uiController.EnemyKilledAudio();
+        }
 
-        yield return new WaitForSeconds(3);
+        this.isRun = false; this.isAttack = false;
+
+        yield return new WaitForSeconds(1.5f);
         gameObject.SetActive(false);
+        uiController.enemyKilledSwt = false;
+        this.goldenGet = false;
         Destroy(gameObject);
     }
 
@@ -163,7 +174,7 @@ public class EnemyController : MonoBehaviour
         while (hitFireTimer < 3)
         {
             this.fireFX[0].Play();
-            dmgMulti = 1.5f;
+            dmgMulti = 3f;
             hitFireTimer += 1;
             //bulletHit();
             yield return new WaitForSeconds(1);
@@ -177,12 +188,8 @@ public class EnemyController : MonoBehaviour
 
     private void EnchantElec()
     {
-        //this.hitElecCount += 1;
-        //bulletHit();
-
-        if (doDie)  // this.life <= 0
+        if (this.life <= 0)  // this.life <= 0
         {
-            Debug.Log("BOOOOOM");
             elecFX[0].Play();
             EnchantReset();
         }
@@ -245,7 +252,6 @@ public class EnemyController : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log("hit");
             playerController.scoreAll += this.score;
             bulletHit();
 

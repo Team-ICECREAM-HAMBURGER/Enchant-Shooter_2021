@@ -15,11 +15,13 @@ public class WeaponController : MonoBehaviour
     public GameObject muzzle;
     public GameObject[] bullets;
     public GameObject player;
+    public ParticleSystem[] muzzleFX;
+    public UIController uiController;
+
 
     private Rigidbody bulletRigid;
     private GameObject bullet;
     private PlayerController playerController;
-    public ParticleSystem[] muzzleFX;
 
 
     private void Awake()
@@ -48,6 +50,7 @@ public class WeaponController : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && canShoot)
                 {
                     StartCoroutine(Shoot(gunType));
+
                     canShoot = false;
                 }
                 break;
@@ -90,13 +93,13 @@ public class WeaponController : MonoBehaviour
         bullet = Instantiate(bullets[this.bulletType], muzzle.transform.position, Quaternion.Euler(playerController.mouseDir));
         bulletRigid = bullet.GetComponent<Rigidbody>();
         bulletRigid.velocity = muzzle.transform.forward * 20f;
-        //bullet.transform.Translate(Vector3.forward * 50 * Time.deltaTime);
         playerController.animator.SetBool("isFire", true);
 
+        // Audio play //
+        uiController.gunAudio[gunType].Play();
 
         // FX play //
         muzzleFX[this.bulletType].Play();
-
 
         // Shoot Delay //
         yield return new WaitForSeconds(this.shootRate);

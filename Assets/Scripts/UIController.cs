@@ -11,14 +11,27 @@ public class UIController : MonoBehaviour
     public GameObject[] hearts;
     public GameObject[] weaponsIcon;
     public GameObject[] enchantIcon;
+    public AudioSource[] playerAudio;
+    public AudioSource[] gunAudio;
+    public AudioSource[] itemAudio;
+    public AudioSource[] enchantAudio;
+    public AudioSource[] enemyAudio;
+    public AudioSource[] BGM;
     public PlayerController player;
     public Text ammoText;
     public Text scoreText;
+    public bool enemyKilledSwt;
+
+    private bool playerKilledSwt;
 
 
     // Start is called before the first frame update
     void Awake()
-    { 
+    {
+        int index = Random.Range(0, 3);
+        BGM[index].Play();
+
+        playerKilledSwt = false;
         Time.timeScale = 1;
     }
 
@@ -33,9 +46,20 @@ public class UIController : MonoBehaviour
         {
             PauseButton();
         }
-
     }
     
+
+    public void ButtonSound()
+    {
+        enchantAudio[0].Play();
+    }
+
+    public void EnemyKilledAudio()
+    {
+        enemyAudio[0].Play();
+        enemyKilledSwt = true;
+    }
+
 
     private void LateUpdate()
     {
@@ -80,25 +104,46 @@ public class UIController : MonoBehaviour
     {
         //Debug.Log(player.life);
 
-        if (player.isHit)
+        if (player.gameObject.activeSelf)
         {
-            hearts[player.life].SetActive(false);
-        }
-
-        if (player.isHealGet && player.life <= 3)
-        {
-            hearts[player.life-1].SetActive(true);
-        }
-        
-        if (player.isShield)
-        {
-            for (int i = player.life; i < hearts.Length; i++)
+            if (player.isHit && player.life > 0)
             {
-                hearts[i].SetActive(true);
+                if (!playerAudio[0].isPlaying)
+                {
+                    playerAudio[0].Play();
+                    player.isHit = false;
+                }
+                hearts[player.life].SetActive(false);
+                
             }
-            player.life = 7;
-            player.isShield = false;
-        }
+
+            if (player.isHealGet && player.life <= 3)
+            {
+                if (!itemAudio[1].isPlaying && player.isHealGet)
+                {
+                    itemAudio[1].Play();
+                    player.item_HP.Play();
+                    player.isHealGet = false;
+                }
+                hearts[player.life - 1].SetActive(true);
+            }
+
+            if (player.isShield)
+            {
+                for (int i = player.life; i < hearts.Length; i++)
+                {
+                    hearts[i].SetActive(true);
+                }
+                
+                if (!itemAudio[1].isPlaying && player.isShield)
+                {
+                    player.life = 7;
+                    itemAudio[1].Play();
+                    player.item_Shield.Play();
+                    player.isShield = false;
+                }
+            }
+        } 
     }
 
 
@@ -138,9 +183,15 @@ public class UIController : MonoBehaviour
     }
 
 
-
     public void PlayerWeaponInfo()
     {
+        if (!itemAudio[0].isPlaying && player.isGunGet)
+        {
+            itemAudio[0].Play();
+            player.item_Gun.Play();
+            player.isGunGet = false;
+        }
+
         switch (player.weaponType)
         {
             case WeaponType.HG:
@@ -177,7 +228,6 @@ public class UIController : MonoBehaviour
 
     public void PlayerScoreInfo()
     {
-        //Debug.Log("!");
         scoreText.text = player.scoreAll + "P";
     }
 
@@ -192,6 +242,16 @@ public class UIController : MonoBehaviour
     {
         if (!player.gameObject.activeSelf)
         {
+            for (int i = 0; i < hearts.Length; i++)
+            {
+                hearts[i].SetActive(false);
+            }
+
+            if (!playerAudio[0].isPlaying && !playerKilledSwt)
+            {
+                playerAudio[1].Play();
+                playerKilledSwt = true;
+            }
             Time.timeScale = 0;
             gameOverWin.SetActive(true);
         }

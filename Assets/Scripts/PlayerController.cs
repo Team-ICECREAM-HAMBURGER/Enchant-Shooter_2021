@@ -31,13 +31,18 @@ public class PlayerController : MonoBehaviour
     public bool isGolden;
     public bool isHit;
     public bool isHealGet;
+    public bool isGunGet;
     public bool isShield;
     public GameObject HG;
     public GameObject AR;
     public GameObject SG;
     public GameObject RPG;
+    public ParticleSystem item_Gun;
+    public ParticleSystem item_Shield;
+    public ParticleSystem item_HP;
     public Animator animator;
     public WeaponController weapon;
+    public UIController uiController;
     public Vector3 mouseDir;
 
     private Vector3 moveVec;
@@ -156,7 +161,6 @@ public class PlayerController : MonoBehaviour
 
     private void WeaponReset(WeaponController weapon)
     {
-        Debug.Log("!!!!: " + weapon.gameObject.name);
         // IF, Weapon's Load OUT, Change to HG //
         if (weapon.ammo <= 0)
         {
@@ -174,8 +178,9 @@ public class PlayerController : MonoBehaviour
     IEnumerator EnchantTimer()
     {
         isGtimerCall = true;
+        uiController.enchantAudio[0].Play();
 
-        while(goldenTimer > 0.0f)
+        while (goldenTimer > 0.0f)
         {
             goldenTimer -= 1f;
             yield return new WaitForSeconds(1);
@@ -183,6 +188,7 @@ public class PlayerController : MonoBehaviour
 
         isGolden = false;
         isGtimerCall = false;
+        uiController.enchantAudio[1].Play();
         enchantType = EnchantType.Normal;
         weapon.BulletMode(EnchantType.Normal);
     }

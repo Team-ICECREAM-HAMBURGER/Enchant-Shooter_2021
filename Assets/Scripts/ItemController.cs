@@ -43,6 +43,7 @@ public class ItemController : MonoBehaviour
                     break;
                 case "Items_Gun(Clone)":       // Gun Random Pick-Up
                     // Gun Random Select //
+                    playerController.isGunGet = true;
                     randomWeapon = (WeaponType)Random.Range(1, 4);
                     playerController.weaponType = randomWeapon;
                     playerController.weapon.canShoot = true;
