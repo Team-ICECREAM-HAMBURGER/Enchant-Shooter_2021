@@ -50,8 +50,10 @@ public class EnemyController : MonoBehaviour
     private bool isAttack;
     private bool isIdle;
     private bool isBoom;
+    private bool isFrozen;
     private bool doDie;
     private bool goldenGet;
+    private bool isRPG;
     private float navSpeed_Temp;
 
 
@@ -100,7 +102,7 @@ public class EnemyController : MonoBehaviour
             nav.SetDestination(player.transform.position);
             ChaseStart();
 
-            if (!doDie && !isBoom)
+            if (!doDie && !isBoom && !isFrozen)
             {
                 transform.LookAt(player.transform.position);
             }
@@ -201,16 +203,16 @@ public class EnemyController : MonoBehaviour
         //this.iceFX[0].Stop();
         //bulletHit();
 
-        if (this.hitIceCount < 5)
+        if (this.hitIceCount < 1)
         {
             this.hitIceCount += 1;
-            nav.speed -= 1f;
+            nav.speed -= 5f;
 
             this.iceFX[0].Play();   // ICE Hit FX Play
         }
         else
         {
-            Debug.Log("ICCCCCE");
+            this.isFrozen = true;
             StartCoroutine(IceTimer());
             EnchantReset();
         }
@@ -244,6 +246,11 @@ public class EnemyController : MonoBehaviour
 
     private void bulletHit()
     {
+        if (playerController.weaponType == WeaponType.RPG)
+        {
+            life = 0;
+            Debug.Log(dmgMulti);
+        }
         life -= playerController.weapon.damage * dmgMulti;
     }
 
@@ -254,7 +261,7 @@ public class EnemyController : MonoBehaviour
         {
             playerController.scoreAll += this.score;
             bulletHit();
-
+            
             switch (playerController.enchantType)
             {
                 case EnchantType.Elec:

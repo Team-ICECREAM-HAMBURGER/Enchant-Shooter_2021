@@ -11,6 +11,7 @@ public class WeaponController : MonoBehaviour
     public float shootRate;
     public int ammo;
     public int bulletType;
+    public int gunType;
     public bool canShoot;
     public GameObject muzzle;
     public GameObject[] bullets;
@@ -18,9 +19,8 @@ public class WeaponController : MonoBehaviour
     public ParticleSystem[] muzzleFX;
     public UIController uiController;
 
-
-    private Rigidbody bulletRigid;
     private GameObject bullet;
+    private Rigidbody bulletRigid;
     private PlayerController playerController;
 
 
@@ -42,6 +42,8 @@ public class WeaponController : MonoBehaviour
 
     public void GunMode(int gunType)
     {
+        this.gunType = gunType;
+
         switch (gunType)
         {
             case 0: // HG
@@ -50,7 +52,7 @@ public class WeaponController : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && canShoot)
                 {
                     StartCoroutine(Shoot(gunType));
-
+                    uiController.gunAudio[gunType].Play();
                     canShoot = false;
                 }
                 break;
@@ -58,9 +60,27 @@ public class WeaponController : MonoBehaviour
                 if (Input.GetMouseButton(0) && canShoot)
                 {
                     StartCoroutine(Shoot(gunType));
+                    // Audio play //
+                    if (!uiController.gunAudio[gunType].isPlaying)
+                    {
+                        uiController.gunAudio[gunType].Play();
+                    }
                     canShoot = false;
                 }
+
+                if (Input.GetMouseButtonUp(0) || this.ammo <= 0)
+                {
+                    uiController.gunAudio[gunType].Stop();
+                }
                 break;
+        }
+
+        if (this.ammo <= 0)
+        {
+            this.ammo = this.ammo_Temp;
+            this.canShoot = true;
+            this.gameObject.SetActive(false);
+            playerController.WeaponReset(this);
         }
     }
 
@@ -94,9 +114,6 @@ public class WeaponController : MonoBehaviour
         bulletRigid = bullet.GetComponent<Rigidbody>();
         bulletRigid.velocity = muzzle.transform.forward * 20f;
         playerController.animator.SetBool("isFire", true);
-
-        // Audio play //
-        uiController.gunAudio[gunType].Play();
 
         // FX play //
         muzzleFX[this.bulletType].Play();

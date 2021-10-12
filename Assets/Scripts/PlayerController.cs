@@ -143,36 +143,36 @@ public class PlayerController : MonoBehaviour
             case WeaponType.AR:
                 weapon = AR.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.AR);
-                WeaponReset(weapon);
+                //WeaponReset(weapon);
                 break;
             case WeaponType.SG:
                 weapon = SG.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.SG);
-                WeaponReset(weapon);
+                //WeaponReset(weapon);
                 break;
             case WeaponType.RPG:
                 weapon = RPG.GetComponent<WeaponController>();
                 weapon.GunMode((int)WeaponType.RPG);
-                WeaponReset(weapon);
+                //WeaponReset(weapon);
                 break;
         }
     }
 
 
-    private void WeaponReset(WeaponController weapon)
+    public void WeaponReset(WeaponController weapon)
     {
+        HG.SetActive(true);
+        this.weaponType = 0;
         // IF, Weapon's Load OUT, Change to HG //
         if (weapon.ammo <= 0)
         {
+            /*
             weapon.ammo = weapon.ammo_Temp;
             weapon.canShoot = true;
-            
             weapon.gameObject.SetActive(false);
-            this.weaponType = 0;
-            HG.SetActive(true);
+            */
         }
     }
-
 
     // Bullet Enchant Type Change //
     IEnumerator EnchantTimer()

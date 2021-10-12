@@ -8,12 +8,14 @@ public class ItemController : MonoBehaviour
     
     private GameObject playerHand;
     private PlayerController playerController;
+    private UIController uiController;
     private WeaponType randomWeapon;
     private string itemType;
 
 
     private void Awake()
     {
+        uiController = GameObject.Find("Canvas").GetComponent<UIController>();
         playerController = GameObject.Find("Player").GetComponent<PlayerController>();
         playerHand = GameObject.Find("player_LeftHand.001");
         StartCoroutine("ActivatingTimer");
@@ -43,6 +45,7 @@ public class ItemController : MonoBehaviour
                     break;
                 case "Items_Gun(Clone)":       // Gun Random Pick-Up
                     // Gun Random Select //
+                    uiController.gunAudio[playerController.weapon.gunType].Stop();
                     playerController.isGunGet = true;
                     randomWeapon = (WeaponType)Random.Range(1, 4);
                     playerController.weaponType = randomWeapon;
